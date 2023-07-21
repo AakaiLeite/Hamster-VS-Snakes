@@ -3,28 +3,34 @@
 // Gameplay: updateGame(), handleInput(), spawn(), checkLevelUp() ,checkCollisions(), clearObstacle(), adjustSnakeSpeed()
 
 class Game {
-  // Constructor will set base properties and corresponding values
-  constructor() {}
-  // Set parameters for game screen. Start the game loop
-  intializeBoard() {}
-  // Start the game: the animation function and check if game is over to interrupt the game loop
-  startGame() {}
-  // Update
-  updateGame() {}
+  // Gameplay initialization and termination
+  constructor() {
+    // Constructor will set base properties and corresponding values
+    // Set parameters for game screen. Start the game loop
+    intializeBoard()
+
+    // Start the game: the animation function and check if game is over to interrupt the game loop
+    startGame()
+
+    // Update
+    updateGame()
+  }
   // End the game
-  stopGame() {}
+  stopGame()
+
+  // Gameplay functions
   // Create a function to handle user input
-  handleInput() {}
+  handleInput()
   // Create a function to spawns obstacles
-  spawnObstacle() {}
+  spawnObstacle()
   // Create a function that spawns snakes
-  spawnSnake() {}
+  spawnSnake()
   // Create a function that checks if player points = levelUp
-  checkLevelUp() {}
+  checkLevelUp()
   // Create a function that checks collisions
-  checkCollisions() {}
+  checkCollisions()
   // Create a function that clears obstacles
-  clearObstacle() {}
+  clearObstacle()
   // Create a function that adjusts snake spead based on level
-  adjustSnakeSpeed() {}
+  adjustSnakeSpeed()
 }

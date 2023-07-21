@@ -4,16 +4,13 @@
 
 class Snake {
     // Create constructor with base properties and values
-    constructor(){
+    constructor()
 
-    }
     // Move the snake
-    move(){
+    move()
 
-    }
     // Updates the position of the snake
-    updatePosition(){
-
-    }
+    updatePosition()
+    
     // Optional: adjust speed of th snake
 }

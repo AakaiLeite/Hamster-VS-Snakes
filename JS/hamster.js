@@ -3,19 +3,14 @@
 
 class Hamster {
     //Create a constructor with properties and starting values
-    constructor(){
+    constructor()
 
-    }
     // Move the player
-    move(){
+    move()
 
-    }
     // Updates the position of the player
-    updatePosition(){
+    updatePosition()
 
-    }
     // Check for collisions
-    checkCollision(){
-
-    }
+    checkCollision()
 }

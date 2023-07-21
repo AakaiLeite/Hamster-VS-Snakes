@@ -3,15 +3,12 @@
 
 class Obstacle {
     // Create constructor with base properties and values
-    constructor(){
+    constructor()
 
-    }
     // Move the obstacle
-    move(){
+    move()
 
-    }
     // Updates the position of the obstacle
-    updatePosition(){
+    updatePosition()
 
-    }
 }

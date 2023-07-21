@@ -2,19 +2,15 @@
 // This page will mostly interact with HTML/CSS
 // UI (Ui.js): displayScore(), displayLevel(), displayGameOver()
 class UserInterface {
-    constructor(){
+    constructor()
 
-    }
     // Create a function to display score
-    displayScore(){
+    displayScore()
 
-    }
     // Create a function to display level
-    displayLevel(){
+    displayLevel()
 
-    }
     // Create a function to display the game over message
-    displayGameOver(){
-
-    }
+    displayGameOver()
+    
 }
