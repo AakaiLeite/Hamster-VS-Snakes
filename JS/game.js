@@ -24,8 +24,6 @@ handleInput()
 spawnObstacle()
 // Create a function that spawns snakes
 spawnSnake()
-// Create a function that checks if player points = levelUp
-checkLevelUp()
 // Create a function that checks collisions
 checkCollisions()
 // Create a function that clears obstacles
