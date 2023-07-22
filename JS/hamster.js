@@ -32,8 +32,9 @@ class Hamster {
     updatePosition()
 
     // Check for collisions
+    // Must check for collisions with obstacles and get pushed back and check for collisions with snakes and lose 1HP
     checkCollision()
 
-    //Animalte the Hamster
+    //Optional: animate the Hamster
     animate()
 }

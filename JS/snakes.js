@@ -30,5 +30,10 @@ class Snake {
     // Updates the position of the snake
     updatePosition()
     
-    // Optional: adjust speed of th snake
+    // Optional: animate the snake
+    animate()
+    
+    // Optional: adjust speed of the snake
+    adjustSpeed()
+
 }
