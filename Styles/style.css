@@ -1,0 +1,15 @@
+body {
+    padding: 0;
+    text-align: center;
+  }
+  
+  #game-intro {
+    padding: 20px 0px;
+  }
+  
+  #high-score-container {
+    display: flex;
+    width: 100vw;
+    padding: 20px 0px;
+    justify-content: center;
+  }

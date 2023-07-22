@@ -1,6 +1,6 @@
 // Create class, set parameters and add following functions:
 // Gameboard initialization and termination:  initializeBoard(), startGame(), stopGame()
-// Gameplay: updateGame(), handleInput(), spawn(), checkLevelUp() ,checkCollisions(), clearObstacle(), adjustSnakeSpeed()
+// Gameplay: updateGame(), spawn(), checkLevelUp() ,checkCollisions(), clearObstacle(), adjustSnakeSpeed()
 
 class Game {
   // Gameplay initialization and termination
@@ -18,8 +18,6 @@ updateGame()
 stopGame()
 
 // Gameplay functions
-// Create a function to handle user input
-handleInput()
 // Create a function to spawns obstacles
 spawnObstacle()
 // Create a function that spawns snakes
