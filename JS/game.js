@@ -29,8 +29,5 @@ spawnSnake()
 // Create a function that checks collisions
 checkCollisions()
 // Create a function that clears food, obstacles and snakes
-clear()
-// Optional: Create a function that adjusts snake spead based on time passed
-// Should, based on time, spawn more and more fast snakes and less slow snakes
-adjustSnakeSpeed()
+clearEntity()
 }
