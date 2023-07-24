@@ -74,9 +74,21 @@ button:hover {
 }
 
 #high-score-container {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 45px;
+  width: auto;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: black;
+  margin: 20px;
   padding: 0px;
   background-image: url(../images/ui-background.png);
+  background-size: cover;;
+  color: white;
+  font-size: 24px;
 }
 
 #game-screen {
@@ -105,7 +117,7 @@ button:hover {
   width: 100%;
   margin: 5px 0;
   background-image: url(../images/ui-background.png);
-  background-size: cover;
+  background-size: contain;
   border-style: solid;
   border-radius: 5px;
 }
@@ -117,4 +129,8 @@ button:hover {
   100% {
     background-position: -1100px 0;
   }
+}
+
+#game-over {
+  display: none;
 }

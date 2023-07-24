@@ -8,7 +8,7 @@ class Game {
     // Constructor will set base properties and corresponding values
     this.gameIntro = document.getElementById("game-intro-container");
     this.startScreen = document.getElementById("game-intro");
-    this.gameInstructions = document.getElementById("game-instructions")
+    this.gameInstructions = document.getElementById("game-instructions");
     this.gameScreen = document.getElementById("game-screen");
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
@@ -25,6 +25,9 @@ class Game {
     this.obstacles = [];
     this.snakes = [];
 
+    // Flag to give info about being in the process of pushing an obstacle
+    this.pushingObstacle = false;
+
     // Score
     this.score = 0;
 
@@ -35,15 +38,15 @@ class Game {
     this.gameIsOver = false;
   }
 
-  showInstructions(){
+  /* showInstructions(){
     this.gameIntro.style.display = "none";
     this.startScreen.style.display = "none";
     this.gameInstructions.style.display = "block"
     this.gameScreen.style.display = "none";
     this.gameBoard.style.display = "none";
     this.uiScreen.style.display = "none";
-  }
-  
+  } */
+
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
     // Swap Screens
@@ -84,17 +87,45 @@ class Game {
     this.player.move();
   }
 
-  /*
+  spawnObstacle();
+
+  // End the game
+  stopGame() {
+    // Remove the player
+    this.player.element.remove();
+    // Remove all obstacles
+    this.obstacles.forEach((obstacle) => {
+      obstacle.element.remove();
+    });
+    // End the game
+    this.gameIsOver = true;
+    // Hide the game screen
+    this.gameScreen.style.display = "none";
+    // Show end game screen
+    this.gameEndScreen.style.display = "block";
+    // Clear the obstacle array
+    this.obstacles = [];
+    this.snakes = [];
+  }
+
+  // Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
+  spawnObstacle() {
+    if (!this.obstacles.length && !this.pushingObstacle) {
+      this.pushingObstacle = true;
+      setTimeout(() => {
+        this.obstacles.push(new Obstacle(this.gameScreen));
+        this.pushingObstacle = false;
+      }, 500);
+    }
+  }
+}
+/*
 // Count time in min:sec
 countTime()
-// End the game
-stopGame()
 
 // Gameplay functions. Should spawn a random amount of food between set boundaries
 // Create a function to spawn food
 spawnFood()
-// Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
-spawnObstacle()
 // Create a function that spawn snakes. Should spawn more snakes based in time passed
 spawnSnake()
 // Create a function that checks collisions
@@ -102,4 +133,3 @@ checkCollisions()
 // Create a function that clears food, obstacles and snakes
 clearEntity()
 */
-}

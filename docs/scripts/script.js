@@ -16,9 +16,9 @@ window.onload = function () {
     startGame();
   });
 
-  instructionsButton.addEventListener("click", () => {
+  /* instructionsButton.addEventListener("click", () => {
     game.showInstructions();
-  });
+  }); */
 
   // Function that handles keydown events
   function handleKeyDown(event) {
@@ -32,7 +32,7 @@ window.onload = function () {
       // Only once thhe game is loaded can we move the player
       if (game) {
         //Update the plaayer position based on the key press
-        switch (key) {
+       switch (key) {
           case "ArrowLeft":
             game.player.directionX = -1;
             break;

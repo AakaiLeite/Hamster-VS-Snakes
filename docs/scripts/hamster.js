@@ -46,13 +46,13 @@ class Hamster {
 
     // Handle top and bottom borders
     // Bottom
-    if (this.top + this.height > this.gameBoard.offsetHeight) {
-      this.top = this.gameBoard.offsetHeight - this.height;
-    } else if (this.top < 0) {
-      this.top = 0;
+    if (this.top + this.height > this.gameBoard.offsetHeight - 150) {
+      this.top = this.gameBoard.offsetHeight - this.height - 150;
+    } else if (this.top < 150) {
+      this.top = 150;
     }
 
-    // this.updatePosition();
+    this.updatePosition();
   }
 
   // Updates the position of the player

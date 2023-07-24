@@ -2,8 +2,8 @@
 // This page will mostly interact with HTML/CSS
 // UI (Ui.js): displayScore(), displayTime(), displayGameOver()
 class UserInterface {
-    constructor()
-/*
+  constructor() {}
+  /*
 // Create a function to display score
 displayScore()
 
@@ -12,5 +12,5 @@ displayTime()
 
 // Create a function to display the game over message
 displayGameOver()
- */   
+ */
 }
