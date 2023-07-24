@@ -23,7 +23,7 @@ class Snake {
         this.element.style.width = `${this.width}px`;
         this.gameScreen.appendChild(this.element);
     }
-    
+/*
     // Move the snake
     move()
 
@@ -35,5 +35,5 @@ class Snake {
     
     // Optional: adjust speed of the snake
     adjustSpeed()
-
+*/
 }

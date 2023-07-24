@@ -22,11 +22,11 @@ class Obstacle {
         this.element.style.width = `${this.width}px`;
         this.gameScreen.appendChild(this.element);
     }
-
+/*
     // Move the obstacle (drop down)
     move()
 
     // Updates the position of the obstacle
     updatePosition()
-
+*/
 }

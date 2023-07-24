@@ -6,62 +6,75 @@ class Game {
   // Gameplay initialization and termination
   constructor() {
     // Constructor will set base properties and corresponding values
-    this.gameIntro = document.getElementById("game-intro-container")
+    this.gameIntro = document.getElementById("game-intro-container");
     this.startScreen = document.getElementById("game-intro");
-    this.gameScreen = document.getElementById('game-screen');
+    this.gameScreen = document.getElementById("game-screen");
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
     this.gameEndScreen = document.getElementById("game-end");
 
+    // Style the game board variables
+    this.width = 1100;
+    this.height = 618;
+
     // Player
-    this.player = new Hamster(this.gameBoard);
+    this.player = new Hamster(this.gameBoard, 50, 50, 75, 50);
 
-     // Obstacles
-     this.obstacles = [];
-     this.snakes = [];
- 
-     // Score
-     this.score = 0;
- 
-     // Lives
-     this.lives = 5;
- 
-     // gameOver flag
-     this.gameIsOver = false;
-   }
+    // Obstacles
+    this.obstacles = [];
+    this.snakes = [];
 
-// Set parameters for game screen. Start the game loop
-initializeBoard() {
-  // Swap Screens
-  this.gameIntro.style.display = "none"
-  this.startScreen.style.display = "none";
-  this.gameScreen.style.display = "flex";
-  this.gameBoard.style.display = "block";
-  this.uiScreen.style.display = "block";
-  this.gameEndScreen.style.disply = "none"
+    // Score
+    this.score = 0;
 
-   // Start the Game Loop
-   this.gameLoop();
-}
+    // Lives
+    this.lives = 5;
 
-// Start the game: requestAnimationFrame and check if game is over to interrupt the game loop
-gameLoop() {
-  // Check if the game is over to interrupt the game loop
-  if (this.gameIsOver) {
-    return;
+    // gameOver flag
+    this.gameIsOver = false;
   }
 
-  this.updateGame();
+  // Set parameters for game screen. Start the game loop
+  initializeBoard() {
+    // Swap Screens
+    this.gameIntro.style.display = "none";
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "flex";
+    this.gameBoard.style.display = "block";
+    this.uiScreen.style.display = "block";
+    // this.gameEndScreen.style.disply = "none";
 
-  window.requestAnimationFrame(() => this.gameLoop());
-}
+    // Style the game board in CSS
+    this.gameBoard.style.height = `${this.height}px`;
+    this.gameBoard.style.width = `${this.width}px`;
 
-// Update
-updateGame(){
+    // Start the Game Loop
+    this.gameLoop();
+  }
 
-}
+  // Start the game: requestAnimationFrame and check if game is over to interrupt the game loop
+  gameLoop() {
+    // Check if the game is over to interrupt the game loop
+    if (this.gameIsOver) {
+      return;
+    }
 
-/*
+    this.updateGame();
+
+    window.requestAnimationFrame(() => this.gameLoop());
+  }
+
+  // Update
+  updateGame() {
+    if (this.lives === 0) {
+      this.endGame();
+    }
+
+    // Move the Hamster
+    this.player.move();
+  }
+
+  /*
 // Count time in min:sec
 countTime()
 // End the game
@@ -78,5 +91,5 @@ spawnSnake()
 checkCollisions()
 // Create a function that clears food, obstacles and snakes
 clearEntity()
-}
 */
+}
