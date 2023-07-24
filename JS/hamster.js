@@ -3,16 +3,15 @@
 
 class Hamster {
     //Create a constructor with properties and starting values
-    constructor(gameScreen){
+    constructor(gameScreen, imgSrc){
         this.gameScreen = gameScreen;
         this.left = 50;
         this.top = 50;
         this.width = 50;
         this.height = 50;
-        this.imgSrc = this.animate();
         this.directionX = 0;
         this.directionY = 0;
-        // Create the hamster img in HTML
+        // Create the hamster img tag in HTML
         this.element = document.createElement("img");
         // Set up imgSrc
         this.element.src = imgSrc;

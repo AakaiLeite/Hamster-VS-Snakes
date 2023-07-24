@@ -6,10 +6,20 @@ class Game {
   // Gameplay initialization and termination
   constructor() {
     // Constructor will set base properties and corresponding values
+    this.startScreen = document.getElementById("game-intro");
+    this.gameScreen = document.getElementById("game-board");
+    this.gameEndScreen = document.getElementById("game-end");
+
+    // Player
+    this.player = new Hamster(
+      this.gameScreen,
+      "./Images/hamster.png"
+    );
+
         
 }
 // Set parameters for game screen. Start the game loop
-intializeBoard()
+initializeBoard()
 // Start the game: the animation function and check if game is over to interrupt the game loop
 startGame()
 // Count time in min:sec
