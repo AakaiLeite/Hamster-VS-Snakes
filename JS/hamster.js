@@ -3,8 +3,8 @@
 
 class Hamster {
     //Create a constructor with properties and starting values
-    constructor(gameScreen, imgSrc){
-        this.gameScreen = gameScreen;
+    constructor(gameBoard){
+        this.gameBoard = gameBoard;
         this.left = 50;
         this.top = 50;
         this.width = 50;
@@ -14,7 +14,7 @@ class Hamster {
         // Create the hamster img tag in HTML
         this.element = document.createElement("img");
         // Set up imgSrc
-        this.element.src = imgSrc;
+        this.element.src = "./Images/hamster.png"
         // Style and append to htlm
         this.element.style.position = "absolute";
         this.element.style.width = `${width}px`;
