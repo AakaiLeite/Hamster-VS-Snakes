@@ -1,8 +1,9 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
+  const instructionsButton = document.getElementById("instruction-button");
 
   let game;
-  
+
   function startGame() {
     console.log("start game");
 
@@ -10,10 +11,13 @@ window.onload = function () {
 
     game.initializeBoard();
   }
-  
+
   startButton.addEventListener("click", () => {
     startGame();
+  });
 
+  instructionsButton.addEventListener("click", () => {
+    game.showInstructions();
   });
 
   // Function that handles keydown events

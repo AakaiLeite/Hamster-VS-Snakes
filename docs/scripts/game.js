@@ -8,6 +8,7 @@ class Game {
     // Constructor will set base properties and corresponding values
     this.gameIntro = document.getElementById("game-intro-container");
     this.startScreen = document.getElementById("game-intro");
+    this.gameInstructions = document.getElementById("game-instructions")
     this.gameScreen = document.getElementById("game-screen");
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
@@ -34,6 +35,15 @@ class Game {
     this.gameIsOver = false;
   }
 
+  showInstructions(){
+    this.gameIntro.style.display = "none";
+    this.startScreen.style.display = "none";
+    this.gameInstructions.style.display = "block"
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+  }
+  
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
     // Swap Screens
