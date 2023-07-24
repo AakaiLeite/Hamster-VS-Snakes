@@ -56,10 +56,14 @@ gameLoop() {
   window.requestAnimationFrame(() => this.gameLoop());
 }
 
+// Update
+updateGame(){
+
+}
+
+/*
 // Count time in min:sec
 countTime()
-// Update
-updateGame()
 // End the game
 stopGame()
 
@@ -75,3 +79,4 @@ checkCollisions()
 // Create a function that clears food, obstacles and snakes
 clearEntity()
 }
+*/

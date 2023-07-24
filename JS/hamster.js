@@ -23,7 +23,7 @@ class Hamster {
         this.element.style.top = `${top}px`;
         this.gameScreen.appendChild(this.element);
     }
-
+/*
     // Move the player
     move()
 
@@ -37,3 +37,4 @@ class Hamster {
     //Optional: animate the Hamster
     animate()
 }
+*/
