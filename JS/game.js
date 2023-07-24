@@ -6,37 +6,56 @@ class Game {
   // Gameplay initialization and termination
   constructor() {
     // Constructor will set base properties and corresponding values
+    this.gameIntro = document.getElementById("game-intro-container")
     this.startScreen = document.getElementById("game-intro");
+    this.gameScreen = document.getElementById('game-screen');
     this.gameBoard = document.getElementById("game-board");
+    this.uiScreen = document.getElementById("ui-screen");
     this.gameEndScreen = document.getElementById("game-end");
 
     // Player
-    this.player = new Hamster(
-    this.gameBoard
-    );
+    this.player = new Hamster(this.gameBoard);
 
-        
-}
+     // Obstacles
+     this.obstacles = [];
+     this.snakes = [];
+ 
+     // Score
+     this.score = 0;
+ 
+     // Lives
+     this.lives = 5;
+ 
+     // gameOver flag
+     this.gameIsOver = false;
+   }
+
 // Set parameters for game screen. Start the game loop
 initializeBoard() {
   // Swap Screens
+  this.gameIntro.style.display = "none"
   this.startScreen.style.display = "none";
+  this.gameScreen.style.display = "flex";
   this.gameBoard.style.display = "block";
+  this.uiScreen.style.display = "block";
+  this.gameEndScreen.style.disply = "none"
 
    // Start the Game Loop
    this.gameLoop();
 }
+
 // Start the game: requestAnimationFrame and check if game is over to interrupt the game loop
-gameLoop(){
+gameLoop() {
   // Check if the game is over to interrupt the game loop
   if (this.gameIsOver) {
     return;
   }
 
-  this.update();
+  this.updateGame();
 
   window.requestAnimationFrame(() => this.gameLoop());
 }
+
 // Count time in min:sec
 countTime()
 // Update

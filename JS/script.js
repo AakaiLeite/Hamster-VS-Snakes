@@ -1,25 +1,20 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
-  const restartButton = document.getElementById("restart-button");
 
   let game;
-
-  startButton.addEventListener("click", () => {
-    startGame();
-  });
-
-  restartButton.addEventListener("click", () => {
-    location.reload();
-  });
-
+  
   function startGame() {
     console.log("start game");
 
     game = new Game();
 
     game.initializeBoard();
-    console.log(this.player);
   }
+  
+  startButton.addEventListener("click", () => {
+    startGame();
+
+  });
 
   // Function that handles keydown events
   function handleKeyDown(event) {
