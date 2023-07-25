@@ -99,16 +99,6 @@ class Game {
     this.numberOfSnakes = 3;
     this.numberOfFood = Math.floor(Math.random() * 3 + 1);
 
-    // Add random snake hisses
-    const hissing = setInterval(() => {
-      let snakehissing = Math.floor(Math.random() * 10 + 1);
-      if (snakehissing % 5 === 0) {
-        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3");
-        snakehiss.play();
-      }
-      clearInterval(hissing);
-    }, 2000);
-
     //Spawn entities
     this.spawnObstacle();
     this.spawnSnake();
@@ -230,6 +220,9 @@ class Game {
       this.pushingSnakes = true;
       setTimeout(() => {
         this.snakes.push(new Snake(this.gameBoard));
+        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3");
+        snakehiss.loop = false;
+        snakehiss.play();
         this.pushingSnakes = false;
         console.log("pushing snakes", this.snakes);
       }, 750);
