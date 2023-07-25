@@ -23,13 +23,13 @@ class Game {
 
     // Obstacles
     this.obstacles = [];
-    this.numberOfObstacles = Math.floor(Math.random() * 2 + 1);
+    this.numberOfObstacles = 2;
     // Snakes
     this.snakes = [];
-    this.numberOfSnakes = Math.floor(Math.random() * 2 + 1);
+    this.numberOfSnakes = 2;
     // Food
     this.food = [];
-    this.numberOfFood = Math.floor(Math.random() * 2 + 1);
+    this.numberOfFood = 2;
 
     // Flag to give info about pushing entity
     this.pushingObstacle = false;
@@ -94,16 +94,70 @@ class Game {
       // Move the obstacle
       const obstacle = this.obstacles[i];
       obstacle.move();
+      if (this.player.checkCollision(obstacle)) {
+        // Remove the obstacle from the Dom
+        obstacle.element.remove();
+        // Remove the obstacle from thhe Array
+        this.obstacles.splice(i, 1);
+        //Redduce player's lives b 1
+        this.lives--;
+      }
+      // Check if the obstacle is still on screen
+      else if (obstacle.top > this.height) {
+        // Congratulations to you, you avoided an obstacle
+        this.score++;
+        // Remove the obstacle from the DOM
+
+        obstacle.element.remove();
+        // Remove the obstacle from the array
+        this.obstacles.splice(i, 1);
+      }
     }
     for (let i = 0; i < this.snakes.length; i++) {
       // Move the obstacle
       const snake = this.snakes[i];
       snake.move();
+      if (this.player.checkCollision(snake)) {
+        // Remove the obstacle from the Dom
+        snake.element.remove();
+        // Remove the obstacle from thhe Array
+        this.snakes.splice(i, 1);
+        //Redduce player's lives b 1
+        this.lives--;
+      }
+      // Check if the obstacle is still on screen
+      else if (snake.top > this.height) {
+        // Congratulations to you, you avoided an obstacle
+        this.score++;
+        // Remove the obstacle from the DOM
+
+        snake.element.remove();
+        // Remove the obstacle from the array
+        this.snakes.splice(i, 1);
+      }
     }
     for (let i = 0; i < this.food.length; i++) {
       // Move the obstacle
       const food = this.food[i];
       food.move();
+      if (this.player.checkCollision(food)) {
+        // Remove the obstacle from the Dom
+        food.element.remove();
+        // Remove the obstacle from thhe Array
+        this.food.splice(i, 1);
+        //Redduce player's lives b 1
+        this.lives++;
+      }
+      // Check if the obstacle is still on screen
+      else if (food.top > this.height) {
+        // Congratulations to you, you avoided an obstacle
+        this.score++;
+        // Remove the obstacle from the DOM
+
+        food.element.remove();
+        // Remove the obstacle from the array
+        this.food.splice(i, 1);
+      }
     }
   }
 

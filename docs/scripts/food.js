@@ -9,7 +9,7 @@ class Food {
         this.topSpawn = Math.floor(Math.random() * 380 + 90);
         this.top = this.topSpawn;
         // Appear from the top (right side)
-        this.right = 0;
+        this.left = this.gameScreen.clientWidth;
         // Have the following width and height
         this.width = 50;
         this.height = 50;
@@ -18,7 +18,7 @@ class Food {
         this.element.src = "/docs/images/food-berries.png"
         this.element.style.position = "absolute";
         this.element.style.top = `${this.top}px`;
-        this.element.style.right = `${this.right}px`;
+        this.element.style.left = `${this.right}px`;
         this.element.style.height = `${this.height}px`;
         this.element.style.width = `${this.width}px`;
         this.gameScreen.appendChild(this.element);
@@ -27,13 +27,13 @@ class Food {
     
     // Move the food (drop down)
     move() {
-        this.right -= 5;
+        this.left -= 5;
         this.updatePosition();
     }
 
     // Updates the position of the obstacle
     updatePosition(){
-        this.element.style.left = `${this.right}px`;
+        this.element.style.left = `${this.left}px`;
         this.element.style.top = `${this.top}px`;
     }
 }

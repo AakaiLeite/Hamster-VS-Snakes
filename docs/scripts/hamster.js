@@ -62,24 +62,24 @@ class Hamster {
   }
   // Check for collisions
   // Must check for collisions with obstacles and get pushed back and check for collisions with snakes and lose 1HP
+  checkCollision(obstacle) {
+    const playerRect = this.element.getBoundingClientRect();
+    const obstacleRect = obstacle.element.getBoundingClientRect();
+  
+    if (
+      playerRect.left < obstacleRect.right &&
+      playerRect.right > obstacleRect.left &&
+      playerRect.top < obstacleRect.bottom &&
+      playerRect.bottom > obstacleRect.top
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 /*
-checkCollision() {
-  const playerRect = this.element.getBoundingClientRect();
-  const obstacleRect = obstacles.element.getBoundingClientRect();
-
-  if (
-    playerRect.left < obstacleRect.right &&
-    playerRect.right > obstacleRect.left &&
-    playerRect.top < obstacleRect.bottom &&
-    playerRect.bottom > obstacleRect.top
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-}
 //Optional: animate the Hamster
 animate()
 */
