@@ -1,6 +1,6 @@
 // Create class, set parameters and add following functions:
 // Gameboard initialization and termination:  initializeBoard(), gameLoop(), countTime(), stopGame()
-// Gameplay: updateGame(), spawn() (food, obstacles and snakes) ,checkCollisions(), clear() (food, obstacles and snakes), adjustSnakeSpeed()
+// Gameplay: updateGame(), spawn() (food, obstacles and snakes) ,checkCollisions(), adjustSnakeSpeed()
 
 class Game {
   // Gameplay initialization and termination
@@ -23,13 +23,10 @@ class Game {
 
     // Obstacles
     this.obstacles = [];
-    this.numberOfObstacles = 3;
     // Snakes
     this.snakes = [];
-    this.numberOfSnakes = 3;
     // Food
     this.food = [];
-    this.numberOfFood = 2;
 
     // Flag to give info about pushing entity
     this.pushingObstacle = false;
@@ -97,14 +94,19 @@ class Game {
     // Move the Hamster
     this.player.move();
 
+    // Add random number of obstacles and food:
+    this.numberOfObstacles = Math.floor(Math.random() * 3 + 1);
+    this.numberOfSnakes = Math.floor(Math.random() * 3 + 1);
+    this.numberOfFood = Math.floor(Math.random() * 3 + 1);
+
     // Add random snake hisses
     const hissing = setInterval(() => {
-      let snakehissing = Math.floor(Math.random() * 10 + 1)
+      let snakehissing = Math.floor(Math.random() * 10 + 1);
       if (snakehissing % 5 === 0) {
-        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3")
-        snakehiss.play()
+        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3");
+        snakehiss.play();
       }
-      clearInterval(hissing)
+      clearInterval(hissing);
     }, 2000);
 
     //Spawn entities
@@ -173,7 +175,7 @@ class Game {
       else if (food.right <= 0) {
         // Remove the food from the DOM
         food.element.remove();
-        console.log("removed food")
+        console.log("removed food");
         // Remove the food from the array
         this.food.splice(i, 1);
       }
@@ -188,6 +190,12 @@ class Game {
     this.obstacles.forEach((obstacle) => {
       obstacle.element.remove();
     });
+    this.snakes.forEach((snake) => {
+      snake.element.remove();
+    });
+    this.food.forEach((food) => {
+      food.element.remove();
+    });
     // End the game
     this.gameIsOver = true;
     // Hide the game screen
@@ -199,7 +207,7 @@ class Game {
     this.snakes = [];
     this.food = [];
     // Save high score
-    setHighScore();
+    this.setHighScore();
   }
 
   // Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
@@ -250,24 +258,20 @@ class Game {
     this.gameEndScreen.style.display = "none";
   }
 
-  //Set high score
   setHighScore() {
     this.highscore = document.getElementById("high-score");
-    this.highscore = 0;
-    let localStorage = localStorage;
-    localStorage.setItem("highscore", highscore);
-    let storage = localStorage.getItem("highscore");
-    highscore.innerHTML = storage;
-    if (this.score > this.highscore) {
-      highscore = score;
-      localStorage.setItem("highscore", highscore);
+    let localStorage = window.localStorage;
+
+    // Retrieve the high score from local storage and parse it as an integer
+    let storedHighScore = parseInt(localStorage.getItem("highscore"));
+
+    // Display the stored high score on the page
+    this.highscore.innerHTML = storedHighScore || 0;
+
+    if (this.score > storedHighScore) {
+      // If the current score is higher than the stored high score, update it
+      this.highscore.innerHTML = this.score;
+      localStorage.setItem("highscore", this.score);
     }
   }
 }
-/*
-// Count time in min:sec
-countTime()
-
-// Create a function that clears food, obstacles and snakes
-clearEntity()
-*/
