@@ -148,7 +148,7 @@ class Game {
         // Remove the food from thhe Array
         this.food.splice(i, 1);
         //Gain Score
-        this.score=+10;
+        this.score += 10;
       }
       // Check if the food is still on screen
       else if (food.left > this.left) {
