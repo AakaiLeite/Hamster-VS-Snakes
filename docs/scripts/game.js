@@ -24,10 +24,13 @@ class Game {
     // Obstacles
     this.obstacles = [];
     this.numberOfObstacles = Math.floor(Math.random * 2 + 1);
+    // Snakes
     this.snakes = [];
+    this.numberOfSnakes = Math.floor(Math.random * 2 + 1);
 
-    // Flag to give info about being in the process of pushing an obstacle
+    // Flag to give info about pushing entity
     this.pushingObstacle = false;
+    this.pushingSnake = false;
 
     // Score
     this.score = 0;
@@ -38,15 +41,6 @@ class Game {
     // gameOver flag
     this.gameIsOver = false;
   }
-
-  /* showInstructions(){
-    this.gameIntro.style.display = "none";
-    this.startScreen.style.display = "none";
-    this.gameInstructions.style.display = "block"
-    this.gameScreen.style.display = "none";
-    this.gameBoard.style.display = "none";
-    this.uiScreen.style.display = "none";
-  } */
 
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
@@ -84,11 +78,19 @@ class Game {
       this.stopGame();
     }
 
-    // Move the Hamster,
+    // Move the Hamster
     this.player.move();
 
     this.spawnObstacle();
+    this.spawnSnake();
 
+    for (let i = 0; i < this.obstacles.length; i++) {
+      // Move the obstacle
+      const obstacle = this.obstacles[i];
+      obstacle.move();
+      // Check if a player collided with an object
+      // this.checkCollisions(obstacle, i);
+    }
   }
 
   // End the game
@@ -105,7 +107,7 @@ class Game {
     this.gameScreen.style.display = "none";
     // Show end game screen
     this.gameEndScreen.style.display = "block";
-    // Clear the obstacle array
+    // Clear the entities
     this.obstacles = [];
     this.snakes = [];
   }
@@ -120,21 +122,37 @@ class Game {
       setTimeout(() => {
         this.obstacles.push(new Obstacle(this.gameBoard));
         this.pushingObstacle = false;
-      }, Math.floor(Math.random * 1000 + 500));
+      }, Math.floor(Math.random() * 1000 + 500));
     }
+  }
+
+  // Create a function that spawn snakes. Should spawn more snakes based in time passed
+  spawnSnake() {
+    if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnake) {
+      this.pushingSnake = true;
+      setTimeout(() => {
+        this.snakes.push(new Snake(this.gameBoard));
+        this.pushingSnakes = false;
+      }, Math.floor(Math.random() * 1000 + 500));
+    }
+  }
+  // Create a function that checks collisions
+  showInstructions() {
+    this.gameIntro.style.display = "none";
+    this.startScreen.style.display = "none";
+    this.gameInstructions.style.display = "block";
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+    this.gameEndScreen.style.display = "none";
   }
 }
 /*
 // Create a function to spawn food
 spawnFood()
-// Create a function that spawn snakes. Should spawn more snakes based in time passed
-spawnSnake()
 // Count time in min:sec
 countTime()
 
-// Gameplay functions. Should spawn a random amount of food between set boundaries
-// Create a function that checks collisions
-checkCollisions()
 // Create a function that clears food, obstacles and snakes
 clearEntity()
 */

@@ -1,6 +1,6 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
-  const instructionsButton = document.getElementById("instruction-button");
+  const instructionButton = document.getElementById("instructions-button");
 
   let game;
 
@@ -16,9 +16,9 @@ window.onload = function () {
     startGame();
   });
 
-  /* instructionsButton.addEventListener("click", () => {
+  instructionButton.addEventListener("click", () => {
     game.showInstructions();
-  }); */
+  });
 
   // Function that handles keydown events
   function handleKeyDown(event) {

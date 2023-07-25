@@ -48,8 +48,8 @@ class Hamster {
     // Bottom
     if (this.top + this.height > this.gameBoard.offsetHeight - 150) {
       this.top = this.gameBoard.offsetHeight - this.height - 150;
-    } else if (this.top < 135) {
-      this.top = 135;
+    } else if (this.top < 130) {
+      this.top = 130;
     }
 
     this.updatePosition();
@@ -60,13 +60,26 @@ class Hamster {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
   }
+  // Check for collisions
+  // Must check for collisions with obstacles and get pushed back and check for collisions with snakes and lose 1HP
 }
 
 /*
-    // Check for collisions
-    // Must check for collisions with obstacles and get pushed back and check for collisions with snakes and lose 1HP
-    checkCollision()
+checkCollision() {
+  const playerRect = this.element.getBoundingClientRect();
+  const obstacleRect = obstacles.element.getBoundingClientRect();
 
-    //Optional: animate the Hamster
-    animate()
-    */
+  if (
+    playerRect.left < obstacleRect.right &&
+    playerRect.right > obstacleRect.left &&
+    playerRect.top < obstacleRect.bottom &&
+    playerRect.bottom > obstacleRect.top
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//Optional: animate the Hamster
+animate()
+*/

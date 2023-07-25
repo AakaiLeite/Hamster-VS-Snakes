@@ -12,23 +12,34 @@ class Snake {
         this.left = 0;
         // Have the following width and height
         this.width = 50;
-        this.height = 50;
+        this.height = 130;
         // Create the HTML element and default styling
         this.element = document.createElement("img");
-        this.element.src = // add img path
+        this.element.src = "/docs/images/snake.png"
         this.element.style.position = "absolute";
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
         this.element.style.height = `${this.height}px`;
         this.element.style.width = `${this.width}px`;
+        this.element.style.transform = "rotate(90deg)"
         this.gameScreen.appendChild(this.element);
+
+        // Move the snake
     }
-/*
-    // Move the snake
-    move()
+    move(){
+      // Drop the obstacle to the bottom
+    this.left += 3;
+    this.updatePosition();  
+    }
 
     // Updates the position of the snake
-    updatePosition()
+    updatePosition(){
+        this.element.style.left = `${this.left}px`;
+        this.element.style.top = `${this.top}px`;
+    }
+}
+/*
+
     
     // Optional: animate the snake
     animate()
@@ -36,4 +47,3 @@ class Snake {
     // Optional: adjust speed of the snake
     adjustSpeed()
 */
-}

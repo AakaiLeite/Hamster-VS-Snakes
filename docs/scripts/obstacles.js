@@ -6,7 +6,7 @@ class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     // Random position for the appearance of the obstacle
-    this.top = Math.floor(Math.random * 490 + 100);
+    this.top = Math.floor(Math.random * 450 + 150);
     // Appear from the top (right side)
     this.right = 0;
     // Have the following width and height
@@ -24,13 +24,13 @@ class Obstacle {
   }
   // Move the obstacle (drop down)
   move() {
-    // Drop the obstacle 3px to the bottom
-    this.left -= 15;
+    // Drop the obstacle to the bottom
+    this.left -= 5;
     this.updatePosition();
   }
-  /*
-
-    // Updates the position of the obstacle
-    updatePosition()
-*/
+  // Updates the position of the obstacle
+  updatePosition() {
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
+  }
 }
