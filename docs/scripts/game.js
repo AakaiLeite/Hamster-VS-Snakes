@@ -1,6 +1,6 @@
 // Create class, set parameters and add following functions:
 // Gameboard initialization and termination:  initializeBoard(), gameLoop(), countTime(), stopGame()
-// Gameplay: updateGame(), spawn() (food, obstacles and snakes) ,checkCollisions(), clear() (food, obstacles and snakes), adjustSnakeSpeed()
+// Gameplay: updateGame(), spawn() (food, obstacles and snakes) ,checkCollisions(), adjustSnakeSpeed()
 
 class Game {
   // Gameplay initialization and termination
@@ -19,17 +19,14 @@ class Game {
     this.height = 618;
 
     // Player
-    this.player = new Hamster(this.gameBoard, 250, 50, 75, 50);
+    this.player = new Hamster(this.gameBoard, 50, 250, 75, 50);
 
     // Obstacles
     this.obstacles = [];
-    this.numberOfObstacles = 3;
     // Snakes
     this.snakes = [];
-    this.numberOfSnakes = 3;
     // Food
     this.food = [];
-    this.numberOfFood = 2;
 
     // Flag to give info about pushing entity
     this.pushingObstacle = false;
@@ -60,6 +57,7 @@ class Game {
     let backgroundMusic = new Audio(
       "/docs/sounds/simple-piano-melody-9834.mp3"
     );
+    backgroundMusic.volume = 0.2;
     backgroundMusic.play();
 
     // Style the game board in CSS
@@ -97,9 +95,20 @@ class Game {
     // Move the Hamster
     this.player.move();
 
+    // Add random number of obstacles and food:
+    this.numberOfObstacles = Math.floor(Math.random() * 3 + 1);
+    this.numberOfSnakes = 3;
+    this.numberOfFood = Math.floor(Math.random() * 3 + 1);
+
+    //Spawn entities
     this.spawnObstacle();
     this.spawnSnake();
     this.spawnFood();
+
+    // Kill the player if he crosses the left boundary
+    if (this.player.left <= 0) {
+      this.lives - 1;
+    }
 
     // Check for collision and if an obstacle is still on screen
     for (let i = 0; i < this.obstacles.length; i++) {
@@ -107,18 +116,14 @@ class Game {
       const obstacle = this.obstacles[i];
       obstacle.move();
       if (this.player.checkCollision(obstacle)) {
-        // Remove the obstacle from the Dom
-        obstacle.element.remove();
-        // Remove the obstacle from thhe Array
-        this.obstacles.splice(i, 1);
-        //Redduce player's lives b 1
-        this.lives--;
+        // push the player
+        this.player.directionX = 0;
+        this.player.left -= 2;
       }
       // Check if the obstacle is still on screen
       else if (obstacle.right <= 0) {
         // Remove the obstacle from the DOM
         obstacle.element.remove();
-        console.log("im removing an obstacle");
         // Remove the obstacle from the array
         this.obstacles.splice(i, 1);
       }
@@ -129,10 +134,9 @@ class Game {
       const snake = this.snakes[i];
       snake.move();
       if (this.player.checkCollision(snake)) {
-        // Remove the snake from the Dom
-        snake.element.remove();
-        // Remove the snake from the Array
-        this.snakes.splice(i, 1);
+        // Respawn the player
+        this.player.left = 50;
+        this.player.top = 250;
         //Redduce player's lives b 1
         this.lives--;
       }
@@ -145,7 +149,7 @@ class Game {
         console.log(this.snakes);
       }
     }
-    // Check for collisions and move the foo
+    // Check for collisions and move the food
     for (let i = 0; i < this.food.length; i++) {
       // Move the food
       const food = this.food[i];
@@ -162,9 +166,14 @@ class Game {
       else if (food.right <= 0) {
         // Remove the food from the DOM
         food.element.remove();
+        console.log("removed food");
         // Remove the food from the array
         this.food.splice(i, 1);
       }
+    }
+    // check if player is leaving the screen
+    if (this.player.left <= 0) {
+      this.lives--;
     }
   }
 
@@ -175,6 +184,12 @@ class Game {
     // Remove all obstacles
     this.obstacles.forEach((obstacle) => {
       obstacle.element.remove();
+    });
+    this.snakes.forEach((snake) => {
+      snake.element.remove();
+    });
+    this.food.forEach((food) => {
+      food.element.remove();
     });
     // End the game
     this.gameIsOver = true;
@@ -187,7 +202,7 @@ class Game {
     this.snakes = [];
     this.food = [];
     // Save high score
-    setHighScore();
+    this.setHighScore();
   }
 
   // Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
@@ -200,7 +215,7 @@ class Game {
       setTimeout(() => {
         this.obstacles.push(new Obstacle(this.gameBoard));
         this.pushingObstacle = false;
-      }, 1000);
+      }, 2500);
     }
   }
 
@@ -209,10 +224,14 @@ class Game {
     if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
       this.pushingSnakes = true;
       setTimeout(() => {
+        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3");
+        snakehiss.loop = false;
+        snakehiss.play();
         this.snakes.push(new Snake(this.gameBoard));
+        snakehiss.volume = 1;
         this.pushingSnakes = false;
         console.log("pushing snakes", this.snakes);
-      }, 500);
+      }, 750);
     }
   }
   // Create a function to spawn food
@@ -222,7 +241,7 @@ class Game {
       setTimeout(() => {
         this.food.push(new Food(this.gameBoard));
         this.pushingFood = false;
-      }, 750);
+      }, 2500);
     }
   }
 
@@ -238,24 +257,20 @@ class Game {
     this.gameEndScreen.style.display = "none";
   }
 
-  //Set high score
   setHighScore() {
     this.highscore = document.getElementById("high-score");
-    this.highscore = 0;
-    let localStorage = localStorage;
-    localStorage.setItem("highscore", highscore);
-    let storage = localStorage.getItem("highscore");
-    highscore.innerHTML = storage;
-    if (this.score > this.highscore) {
-      highscore = score;
-      localStorage.setItem("highscore", highscore);
+    let localStorage = window.localStorage;
+
+    // Retrieve the high score from local storage and parse it as an integer
+    let storedHighScore = parseInt(localStorage.getItem("highscore"));
+
+    // Display the stored high score on the page
+    this.highscore.innerHTML = storedHighScore || 0;
+
+    if (this.score > storedHighScore) {
+      // If the current score is higher than the stored high score, update it
+      this.highscore.innerHTML = this.score;
+      localStorage.setItem("highscore", this.score);
     }
   }
 }
-/*
-// Count time in min:sec
-countTime()
-
-// Create a function that clears food, obstacles and snakes
-clearEntity()
-*/

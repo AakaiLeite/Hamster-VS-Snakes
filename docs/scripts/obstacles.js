@@ -12,7 +12,7 @@ class Obstacle {
     this.right = this.gameScreen.clientWidth;
     // Have the following width and height
     this.width = 80;
-    this.height = 110;
+    this.height = 80;
     // Create the HTML element and default styling
     this.element = document.createElement("img");
     this.element.src = "/docs/images/rock-dark.png";

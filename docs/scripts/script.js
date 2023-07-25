@@ -18,10 +18,9 @@ window.onload = function () {
   });
 
   instructionButton.addEventListener("click", () => {
-    game = new Game();
     game.showInstructions();
   });
-
+  
   restartButton.addEventListener("click", () => {
     location.reload();
   });
@@ -40,7 +39,7 @@ window.onload = function () {
         //Update the plaayer position based on the key press
         switch (key) {
           case "ArrowLeft":
-            game.player.directionX = -1;
+            game.player.directionX = -2;
             break;
           case "ArrowRight":
             game.player.directionX = 1;
@@ -89,4 +88,5 @@ window.onload = function () {
   //Associate the handleKeyDown and handleKeyUp functions with the Event Listener
   window.addEventListener("keydown", handleKeyDown);
   window.addEventListener("keyup", handleKeyUp);
+
 };
