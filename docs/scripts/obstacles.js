@@ -31,7 +31,7 @@ class Obstacle {
   // Move the obstacle (drop down)
   move() {
     // Drop the obstacle to the bottom
-    this.right -= 3;
+    this.right -= 2;
     this.updatePosition();
   }
 }

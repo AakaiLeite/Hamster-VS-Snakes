@@ -12,7 +12,7 @@ class Game {
     this.gameScreen = document.getElementById("game-screen");
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
-    this.gameEndScreen = document.getElementById("game-end");
+    this.gameEndScreen = document.getElementById("game-over");
 
     // Style the game board variables
     this.width = 1100;
@@ -78,6 +78,12 @@ class Game {
 
   // Update
   updateGame() {
+    let score = document.getElementById("score");
+    let lives = document.getElementById("lives");
+
+    score.innerHTML = this.score;
+    lives.innerHTML = this.lives;
+
     if (this.lives === 0) {
       this.stopGame();
     }
@@ -103,59 +109,52 @@ class Game {
         this.lives--;
       }
       // Check if the obstacle is still on screen
-      else if (obstacle.top > this.height) {
-        // Congratulations to you, you avoided an obstacle
-        this.score++;
+      else if (obstacle.left > this.left) {
         // Remove the obstacle from the DOM
-
         obstacle.element.remove();
         // Remove the obstacle from the array
         this.obstacles.splice(i, 1);
       }
     }
+    // Check for collisions and move the snake
     for (let i = 0; i < this.snakes.length; i++) {
-      // Move the obstacle
+      // Move the snake
       const snake = this.snakes[i];
       snake.move();
       if (this.player.checkCollision(snake)) {
-        // Remove the obstacle from the Dom
+        // Remove the snake from the Dom
         snake.element.remove();
-        // Remove the obstacle from thhe Array
+        // Remove the snake from the Array
         this.snakes.splice(i, 1);
         //Redduce player's lives b 1
         this.lives--;
       }
-      // Check if the obstacle is still on screen
-      else if (snake.top > this.height) {
-        // Congratulations to you, you avoided an obstacle
-        this.score++;
-        // Remove the obstacle from the DOM
-
+      // Check if the snake is still on screen
+      else if (snake.right > this.right) {
+        // Remove the snake from the DOM
         snake.element.remove();
-        // Remove the obstacle from the array
+        // Remove the snake from the array
         this.snakes.splice(i, 1);
       }
     }
+    // Check for collisions and move the foo
     for (let i = 0; i < this.food.length; i++) {
-      // Move the obstacle
+      // Move the food
       const food = this.food[i];
       food.move();
       if (this.player.checkCollision(food)) {
-        // Remove the obstacle from the Dom
+        // Remove the food from the Dom
         food.element.remove();
-        // Remove the obstacle from thhe Array
+        // Remove the food from thhe Array
         this.food.splice(i, 1);
-        //Redduce player's lives b 1
-        this.lives++;
+        //Gain Score
+        this.score += 10;
       }
-      // Check if the obstacle is still on screen
-      else if (food.top > this.height) {
-        // Congratulations to you, you avoided an obstacle
-        this.score++;
-        // Remove the obstacle from the DOM
-
+      // Check if the food is still on screen
+      else if (food.left > this.left) {
+        // Remove the food from the DOM
         food.element.remove();
-        // Remove the obstacle from the array
+        // Remove the food from the array
         this.food.splice(i, 1);
       }
     }
