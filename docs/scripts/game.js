@@ -226,7 +226,7 @@ class Game {
     this.uiScreen.style.display = "none";
     this.gameEndScreen.style.display = "none";
   }
-}
+};
 /*
 // Count time in min:sec
 countTime()

@@ -17,6 +17,7 @@ window.onload = function () {
   });
 
   instructionButton.addEventListener("click", () => {
+    game = new Game();
     game.showInstructions();
   });
 
