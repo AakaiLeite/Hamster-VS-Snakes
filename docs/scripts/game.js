@@ -220,7 +220,7 @@ class Game {
       setTimeout(() => {
         this.obstacles.push(new Obstacle(this.gameBoard));
         this.pushingObstacle = false;
-      }, 1000);
+      }, 2500);
     }
   }
 
@@ -242,7 +242,7 @@ class Game {
       setTimeout(() => {
         this.food.push(new Food(this.gameBoard));
         this.pushingFood = false;
-      }, 750);
+      }, 2500);
     }
   }
 
