@@ -41,7 +41,7 @@ class Hamster {
     }
     // Left Border
     else if (this.left < 0) {
-      this.left = 0;
+      this.left = 150;
     }
 
     // Handle top and bottom borders

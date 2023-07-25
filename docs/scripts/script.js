@@ -89,4 +89,5 @@ window.onload = function () {
   //Associate the handleKeyDown and handleKeyUp functions with the Event Listener
   window.addEventListener("keydown", handleKeyDown);
   window.addEventListener("keyup", handleKeyUp);
+
 };

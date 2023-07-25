@@ -41,6 +41,7 @@ class Game {
 
     // gameOver flag
     this.gameIsOver = false;
+
   }
 
   // Set parameters for game screen. Start the game loop
@@ -57,6 +58,7 @@ class Game {
     let backgroundMusic = new Audio(
       "/docs/sounds/simple-piano-melody-9834.mp3"
     );
+    backgroundMusic.volume = 0.2;
     backgroundMusic.play();
 
     // Style the game board in CSS
@@ -104,24 +106,25 @@ class Game {
     this.spawnSnake();
     this.spawnFood();
 
+    // Kill the player if he crosses the left boundary
+    if (this.player.left <= 0) {
+      this.lives - 1;
+    }
+
     // Check for collision and if an obstacle is still on screen
     for (let i = 0; i < this.obstacles.length; i++) {
       // Move the obstacle
       const obstacle = this.obstacles[i];
       obstacle.move();
       if (this.player.checkCollision(obstacle)) {
-        // Remove the obstacle from the Dom
-        obstacle.element.remove();
-        // Remove the obstacle from thhe Array
-        this.obstacles.splice(i, 1);
-        //Redduce player's lives b 1
-        this.lives--;
+        // push the player
+        this.player.directionX = 0;
+        this.player.left -= 2;
       }
       // Check if the obstacle is still on screen
       else if (obstacle.right <= 0) {
         // Remove the obstacle from the DOM
         obstacle.element.remove();
-        console.log("im removing an obstacle");
         // Remove the obstacle from the array
         this.obstacles.splice(i, 1);
       }
@@ -148,7 +151,7 @@ class Game {
         console.log(this.snakes);
       }
     }
-    // Check for collisions and move the foo
+    // Check for collisions and move the food
     for (let i = 0; i < this.food.length; i++) {
       // Move the food
       const food = this.food[i];
@@ -169,6 +172,10 @@ class Game {
         // Remove the food from the array
         this.food.splice(i, 1);
       }
+    }
+    // check if player is leaving the screen
+    if (this.player.left <= 0) {
+      this.lives--
     }
   }
 
@@ -219,10 +226,11 @@ class Game {
     if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
       this.pushingSnakes = true;
       setTimeout(() => {
-        this.snakes.push(new Snake(this.gameBoard));
         let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3");
         snakehiss.loop = false;
         snakehiss.play();
+        this.snakes.push(new Snake(this.gameBoard));
+        snakehiss.volume = 1;
         this.pushingSnakes = false;
         console.log("pushing snakes", this.snakes);
       }, 750);
