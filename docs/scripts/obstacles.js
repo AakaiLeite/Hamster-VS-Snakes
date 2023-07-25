@@ -9,6 +9,7 @@ class Obstacle {
     this.top = Math.floor(Math.random * 450 + 150);
     // Appear from the top (right side)
     this.right = 0;
+    this.top = 300;
     // Have the following width and height
     this.width = 80;
     this.height = 110;
