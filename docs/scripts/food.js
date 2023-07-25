@@ -27,7 +27,7 @@ class Food {
     
     // Move the food (drop down)
     move() {
-        this.left -= 5;
+        this.left -= 2;
         this.updatePosition();
     }
 

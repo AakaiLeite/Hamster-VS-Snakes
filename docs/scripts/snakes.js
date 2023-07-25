@@ -34,7 +34,7 @@ class Snake {
     }
     move(){
       // Drop the obstacle to the bottom
-    this.left += 2;
+    this.left += 1;
     this.updatePosition();  
     }
 

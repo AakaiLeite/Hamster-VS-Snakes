@@ -86,7 +86,7 @@ button:hover {
   margin: 20px;
   padding: 0px;
   background-image: url(../images/ui-background.png);
-  background-size: cover;;
+  background-size: cover;
   color: white;
   font-size: 24px;
 }
@@ -113,13 +113,17 @@ button:hover {
 
 #ui-screen {
   display: block;
+  text-align: center;
   height: 80px;
   width: 100%;
   margin: 5px 0;
   background-image: url(../images/ui-background.png);
   background-size: contain;
   border-style: solid;
+  border-color: black;
   border-radius: 5px;
+  color: white;
+  font-size: 20px;
 }
 
 @keyframes slide {
@@ -133,4 +137,17 @@ button:hover {
 
 #game-over {
   display: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+#game-over > img {
+  width: 350px;
+  height: auto;
+}
+
+#game-over > button {
+  margin: 20px;
 }
