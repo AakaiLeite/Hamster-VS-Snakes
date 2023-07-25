@@ -26,14 +26,14 @@ class Game {
     this.numberOfObstacles = 2;
     // Snakes
     this.snakes = [];
-    this.numberOfSnakes = 2;
+    this.numberOfSnakes = 3;
     // Food
     this.food = [];
     this.numberOfFood = 2;
 
     // Flag to give info about pushing entity
     this.pushingObstacle = false;
-    this.pushingSnake = false;
+    this.pushingSnakes = false;
     this.pushingFood = false;
 
     // Score
@@ -54,7 +54,13 @@ class Game {
     this.gameScreen.style.display = "flex";
     this.gameBoard.style.display = "block";
     this.uiScreen.style.display = "block";
-    // this.gameEndScreen.style.disply = "none";
+    this.gameEndScreen.style.disply = "none";
+
+    // Start music
+    let backgroundMusic = new Audio(
+      "/docs/sounds/simple-piano-melody-9834.mp3"
+    );
+    backgroundMusic.play();
 
     // Style the game board in CSS
     this.gameBoard.style.height = `${this.height}px`;
@@ -109,9 +115,10 @@ class Game {
         this.lives--;
       }
       // Check if the obstacle is still on screen
-      else if (obstacle.left > this.left) {
+      else if (obstacle.right <= 0) {
         // Remove the obstacle from the DOM
         obstacle.element.remove();
+        console.log("im removing an obstacle");
         // Remove the obstacle from the array
         this.obstacles.splice(i, 1);
       }
@@ -130,11 +137,12 @@ class Game {
         this.lives--;
       }
       // Check if the snake is still on screen
-      else if (snake.right > this.right) {
+      else if (snake.left >= this.gameScreen.clientWidth) {
         // Remove the snake from the DOM
         snake.element.remove();
         // Remove the snake from the array
         this.snakes.splice(i, 1);
+        console.log(this.snakes);
       }
     }
     // Check for collisions and move the foo
@@ -189,18 +197,19 @@ class Game {
       setTimeout(() => {
         this.obstacles.push(new Obstacle(this.gameBoard));
         this.pushingObstacle = false;
-      }, Math.floor(Math.random() * 1000 + 500));
+      }, 1000);
     }
   }
 
   // Create a function that spawn snakes. Should spawn more snakes based in time passed
   spawnSnake() {
-    if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnake) {
-      this.pushingSnake = true;
+    if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
+      this.pushingSnakes = true;
       setTimeout(() => {
         this.snakes.push(new Snake(this.gameBoard));
         this.pushingSnakes = false;
-      }, Math.floor(Math.random() * 1000 + 500));
+        console.log("pushing snakes", this.snakes);
+      }, 500);
     }
   }
   // Create a function to spawn food
@@ -210,7 +219,7 @@ class Game {
       setTimeout(() => {
         this.food.push(new Food(this.gameBoard));
         this.pushingFood = false;
-      }, Math.floor(Math.random() * 1000 + 500));
+      }, 750);
     }
   }
 
