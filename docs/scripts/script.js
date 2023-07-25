@@ -1,6 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const instructionButton = document.getElementById("instructions-button");
+  const restartButton = document.getElementById("restart-button");
 
   let game;
 
@@ -19,6 +20,10 @@ window.onload = function () {
   instructionButton.addEventListener("click", () => {
     game = new Game();
     game.showInstructions();
+  });
+
+  restartButton.addEventListener("click", () => {
+    location.reload();
   });
 
   // Function that handles keydown events

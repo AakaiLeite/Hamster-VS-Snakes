@@ -6,7 +6,7 @@ class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     // Random position for the appearance of the obstacle
-    this.topSpawn = Math.floor(Math.random() * 380 + 90);;
+    this.topSpawn = Math.floor(Math.random() * 380 + 90);
     this.top = this.topSpawn;
     // Appear from the top (right side)
     this.right = this.gameScreen.clientWidth;
