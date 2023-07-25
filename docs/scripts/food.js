@@ -6,8 +6,7 @@ class Food {
     constructor(gameScreen){
         this.gameScreen = gameScreen;
         // Random position for the appearance of the obstacle
-        this.topSpawn = Math.floor(Math.random() * 380 + 90);
-        this.top = this.topSpawn;
+        this.top = Math.floor(Math.random() * 380 + 90);
         // Appear from the top (right side)
         this.left = this.gameScreen.clientWidth;
         // Have the following width and height

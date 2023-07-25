@@ -7,7 +7,7 @@ class Snake {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     // Random position for the appearance of the obstacle
-    this.top = Math.floor(Math.random() * 380 + 90);
+    this.top = Math.floor(Math.random() * 300 + 90);
     // Appear from the top (right side)
     this.left = 0;
     // Have the following width and height

@@ -173,6 +173,7 @@ class Game {
       else if (food.right <= 0) {
         // Remove the food from the DOM
         food.element.remove();
+        console.log("removed food")
         // Remove the food from the array
         this.food.splice(i, 1);
       }
