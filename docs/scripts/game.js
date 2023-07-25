@@ -23,7 +23,7 @@ class Game {
 
     // Obstacles
     this.obstacles = [];
-    this.numberOfObstacles = 2;
+    this.numberOfObstacles = 3;
     // Snakes
     this.snakes = [];
     this.numberOfSnakes = 3;
@@ -159,7 +159,7 @@ class Game {
         this.score += 10;
       }
       // Check if the food is still on screen
-      else if (food.left > this.left) {
+      else if (food.right <= 0) {
         // Remove the food from the DOM
         food.element.remove();
         // Remove the food from the array
@@ -185,6 +185,9 @@ class Game {
     // Clear the entities
     this.obstacles = [];
     this.snakes = [];
+    this.food = [];
+    // Save high score
+    setHighScore();
   }
 
   // Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
@@ -234,7 +237,21 @@ class Game {
     this.uiScreen.style.display = "none";
     this.gameEndScreen.style.display = "none";
   }
-};
+
+  //Set high score
+  setHighScore() {
+    this.highscore = document.getElementById("high-score");
+    this.highscore = 0;
+    let localStorage = localStorage;
+    localStorage.setItem("highscore", highscore);
+    let storage = localStorage.getItem("highscore");
+    highscore.innerHTML = storage;
+    if (this.score > this.highscore) {
+      highscore = score;
+      localStorage.setItem("highscore", highscore);
+    }
+  }
+}
 /*
 // Count time in min:sec
 countTime()
