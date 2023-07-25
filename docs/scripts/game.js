@@ -89,12 +89,21 @@ class Game {
     this.spawnSnake();
     this.spawnFood();
 
+    // Check for collision and if an obstacle is still on screen
     for (let i = 0; i < this.obstacles.length; i++) {
       // Move the obstacle
       const obstacle = this.obstacles[i];
       obstacle.move();
-      // Check if a player collided with an object
-      // this.checkCollisions(obstacle, i);
+    }
+    for (let i = 0; i < this.snakes.length; i++) {
+      // Move the obstacle
+      const snake = this.snakes[i];
+      snake.move();
+    }
+    for (let i = 0; i < this.food.length; i++) {
+      // Move the obstacle
+      const food = this.food[i];
+      food.move();
     }
   }
 

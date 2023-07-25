@@ -7,7 +7,8 @@ class Snake {
     constructor(gameScreen){
         this.gameScreen = gameScreen;
         // Random position for the appearance of the obstacle
-        this.top = //add random and boundaries;
+        this.topSpawn = Math.floor(Math.random() * 380 + 90);
+        this.top = this.topSpawn;
         // Appear from the top (right side)
         this.left = 0;
         // Have the following width and height
@@ -26,17 +27,17 @@ class Snake {
 
         // Move the snake
     }
-    move(){
-      // Drop the obstacle to the bottom
-    this.left += 3;
-    this.updatePosition();  
-    }
-
     // Updates the position of the snake
     updatePosition(){
         this.element.style.left = `${this.left}px`;
         this.element.style.top = `${this.top}px`;
     }
+    move(){
+      // Drop the obstacle to the bottom
+    this.left += 2;
+    this.updatePosition();  
+    }
+
 }
 /*
 
