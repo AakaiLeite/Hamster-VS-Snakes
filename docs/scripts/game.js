@@ -19,7 +19,7 @@ class Game {
     this.height = 618;
 
     // Player
-    this.player = new Hamster(this.gameBoard, 250, 50, 75, 50);
+    this.player = new Hamster(this.gameBoard, 50, 250, 75, 50);
 
     // Obstacles
     this.obstacles = [];
@@ -41,7 +41,6 @@ class Game {
 
     // gameOver flag
     this.gameIsOver = false;
-
   }
 
   // Set parameters for game screen. Start the game loop
@@ -135,10 +134,9 @@ class Game {
       const snake = this.snakes[i];
       snake.move();
       if (this.player.checkCollision(snake)) {
-        // Remove the snake from the Dom
-        snake.element.remove();
-        // Remove the snake from the Array
-        this.snakes.splice(i, 1);
+        // Respawn the player
+        this.player.left = 50;
+        this.player.top = 250;
         //Redduce player's lives b 1
         this.lives--;
       }
@@ -175,7 +173,7 @@ class Game {
     }
     // check if player is leaving the screen
     if (this.player.left <= 0) {
-      this.lives--
+      this.lives--;
     }
   }
 
