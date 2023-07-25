@@ -71,6 +71,8 @@ button:hover {
   height: 500px;
   width: 800px;
   background-image: url(../images/ui-background.png);
+  padding: 0;
+  text-align: center;
 }
 
 #high-score-container {
