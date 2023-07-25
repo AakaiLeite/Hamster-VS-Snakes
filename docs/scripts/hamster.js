@@ -48,8 +48,8 @@ class Hamster {
     // Bottom
     if (this.top + this.height > this.gameBoard.offsetHeight - 150) {
       this.top = this.gameBoard.offsetHeight - this.height - 150;
-    } else if (this.top < 150) {
-      this.top = 150;
+    } else if (this.top < 135) {
+      this.top = 135;
     }
 
     this.updatePosition();

@@ -23,6 +23,7 @@ class Game {
 
     // Obstacles
     this.obstacles = [];
+    this.numberOfObstacles = Math.floor(Math.random * 2 + 1);
     this.snakes = [];
 
     // Flag to give info about being in the process of pushing an obstacle
@@ -80,14 +81,15 @@ class Game {
   // Update
   updateGame() {
     if (this.lives === 0) {
-      this.endGame();
+      this.stopGame();
     }
 
-    // Move the Hamster
+    // Move the Hamster,
     this.player.move();
-  }
 
-  spawnObstacle();
+    this.spawnObstacle();
+
+  }
 
   // End the game
   stopGame() {
@@ -110,24 +112,27 @@ class Game {
 
   // Create a function to spawn obstacles. Should spawn a random amount of obstacles between set boundaries
   spawnObstacle() {
-    if (!this.obstacles.length && !this.pushingObstacle) {
+    if (
+      this.obstacles.length !== this.numberOfObstacles &&
+      !this.pushingObstacle
+    ) {
       this.pushingObstacle = true;
       setTimeout(() => {
-        this.obstacles.push(new Obstacle(this.gameScreen));
+        this.obstacles.push(new Obstacle(this.gameBoard));
         this.pushingObstacle = false;
-      }, 500);
+      }, Math.floor(Math.random * 1000 + 500));
     }
   }
 }
 /*
-// Count time in min:sec
-countTime()
-
-// Gameplay functions. Should spawn a random amount of food between set boundaries
 // Create a function to spawn food
 spawnFood()
 // Create a function that spawn snakes. Should spawn more snakes based in time passed
 spawnSnake()
+// Count time in min:sec
+countTime()
+
+// Gameplay functions. Should spawn a random amount of food between set boundaries
 // Create a function that checks collisions
 checkCollisions()
 // Create a function that clears food, obstacles and snakes
