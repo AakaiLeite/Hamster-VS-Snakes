@@ -121,7 +121,7 @@ class Game {
         this.player.left -= 2;
       }
       // Check if the obstacle is still on screen
-      else if (obstacle.right <= 0) {
+      else if (obstacle.right + obstacle.width <= 0) {
         // Remove the obstacle from the DOM
         obstacle.element.remove();
         // Remove the obstacle from the array
@@ -137,6 +137,10 @@ class Game {
         // Respawn the player
         this.player.left = 50;
         this.player.top = 250;
+        // Remove the snake from the dom
+        snake.element.remove();
+        // Remove the snake from the array
+        this.snakes.splice(i, 1);
         //Redduce player's lives b 1
         this.lives--;
       }
