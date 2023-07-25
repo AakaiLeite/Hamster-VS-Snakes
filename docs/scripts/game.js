@@ -96,7 +96,7 @@ class Game {
 
     // Add random number of obstacles and food:
     this.numberOfObstacles = Math.floor(Math.random() * 3 + 1);
-    this.numberOfSnakes = Math.floor(Math.random() * 3 + 1);
+    this.numberOfSnakes = 3;
     this.numberOfFood = Math.floor(Math.random() * 3 + 1);
 
     // Add random snake hisses
@@ -232,7 +232,7 @@ class Game {
         this.snakes.push(new Snake(this.gameBoard));
         this.pushingSnakes = false;
         console.log("pushing snakes", this.snakes);
-      }, 500);
+      }, 750);
     }
   }
   // Create a function to spawn food
