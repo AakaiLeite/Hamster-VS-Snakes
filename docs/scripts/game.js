@@ -97,6 +97,17 @@ class Game {
     // Move the Hamster
     this.player.move();
 
+    // Add random snake hisses
+    const hissing = setInterval(() => {
+      let snakehissing = Math.floor(Math.random() * 10 + 1)
+      if (snakehissing % 5 === 0) {
+        let snakehiss = new Audio("/docs/sounds/snake-hissing-6092.mp3")
+        snakehiss.play()
+      }
+      clearInterval(hissing)
+    }, 2000);
+
+    //Spawn entities
     this.spawnObstacle();
     this.spawnSnake();
     this.spawnFood();
