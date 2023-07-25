@@ -19,7 +19,7 @@ class Game {
     this.height = 618;
 
     // Player
-    this.player = new Hamster(this.gameBoard, 50, 50, 75, 50);
+    this.player = new Hamster(this.gameBoard, 250, 50, 75, 50);
 
     // Obstacles
     this.obstacles = [];

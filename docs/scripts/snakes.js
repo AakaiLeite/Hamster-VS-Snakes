@@ -13,7 +13,7 @@ class Snake {
         this.left = 0;
         // Have the following width and height
         this.width = 50;
-        this.height = 130;
+        this.height = 150;
         // Create the HTML element and default styling
         this.element = document.createElement("img");
         this.element.src = "/docs/images/snake.png"

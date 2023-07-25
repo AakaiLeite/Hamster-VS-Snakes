@@ -15,7 +15,7 @@ class Obstacle {
     this.height = 110;
     // Create the HTML element and default styling
     this.element = document.createElement("img");
-    this.element.src = "/docs/images/rock-clay.png";
+    this.element.src = "/docs/images/rock-dark.png";
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.right = `${this.right}px`;
