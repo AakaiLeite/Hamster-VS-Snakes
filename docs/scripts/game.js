@@ -23,14 +23,18 @@ class Game {
 
     // Obstacles
     this.obstacles = [];
-    this.numberOfObstacles = Math.floor(Math.random * 2 + 1);
+    this.numberOfObstacles = Math.floor(Math.random() * 2 + 1);
     // Snakes
     this.snakes = [];
-    this.numberOfSnakes = Math.floor(Math.random * 2 + 1);
+    this.numberOfSnakes = Math.floor(Math.random() * 2 + 1);
+    // Food
+    this.food = [];
+    this.numberOfFood = Math.floor(Math.random() * 2 + 1);
 
     // Flag to give info about pushing entity
     this.pushingObstacle = false;
     this.pushingSnake = false;
+    this.pushingFood = false;
 
     // Score
     this.score = 0;
@@ -83,13 +87,23 @@ class Game {
 
     this.spawnObstacle();
     this.spawnSnake();
+    this.spawnFood();
 
+    // Check for collision and if an obstacle is still on screen
     for (let i = 0; i < this.obstacles.length; i++) {
       // Move the obstacle
       const obstacle = this.obstacles[i];
       obstacle.move();
-      // Check if a player collided with an object
-      // this.checkCollisions(obstacle, i);
+    }
+    for (let i = 0; i < this.snakes.length; i++) {
+      // Move the obstacle
+      const snake = this.snakes[i];
+      snake.move();
+    }
+    for (let i = 0; i < this.food.length; i++) {
+      // Move the obstacle
+      const food = this.food[i];
+      food.move();
     }
   }
 
@@ -136,7 +150,19 @@ class Game {
       }, Math.floor(Math.random() * 1000 + 500));
     }
   }
+  // Create a function to spawn food
+  spawnFood() {
+    if (this.food.length !== this.numberOfFood && !this.pushingFood) {
+      this.pushingFood = true;
+      setTimeout(() => {
+        this.food.push(new Food(this.gameBoard));
+        this.pushingFood = false;
+      }, Math.floor(Math.random() * 1000 + 500));
+    }
+  }
+
   // Create a function that checks collisions
+
   showInstructions() {
     this.gameIntro.style.display = "none";
     this.startScreen.style.display = "none";
@@ -148,8 +174,6 @@ class Game {
   }
 }
 /*
-// Create a function to spawn food
-spawnFood()
 // Count time in min:sec
 countTime()
 
