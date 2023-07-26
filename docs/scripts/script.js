@@ -13,17 +13,27 @@ window.onload = function () {
     game.initializeBoard();
   }
 
+  // Add event listener for buttons
   startButton.addEventListener("click", () => {
     startGame();
   });
-
   instructionButton.addEventListener("click", () => {
     game.showInstructions();
   });
-  
   restartButton.addEventListener("click", () => {
     location.reload();
   });
+
+  // Show instructions function
+ function showInstructions(){
+    this.gameIntro.style.display = "none";
+    this.gameinstructions.style.display = "flex";
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+    this.gameEndScreen.style.disply = "none";
+  }
 
   // Function that handles keydown events
   function handleKeyDown(event) {
@@ -88,14 +98,4 @@ window.onload = function () {
   //Associate the handleKeyDown and handleKeyUp functions with the Event Listener
   window.addEventListener("keydown", handleKeyDown);
   window.addEventListener("keyup", handleKeyUp);
-
-  showInstructions(){
-    this.gameIntro.style.display = "none";
-    this.gameinstructions.style.display = "flex";
-    this.startScreen.style.display = "none";
-    this.gameScreen.style.display = "none";
-    this.gameBoard.style.display = "none";
-    this.uiScreen.style.display = "none";
-    this.gameEndScreen.style.disply = "none";
-  }
 };
