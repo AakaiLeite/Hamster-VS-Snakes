@@ -33,10 +33,10 @@ window.onload = function () {
       if (game) {
         switch (key) {
           case "ArrowLeft":
-            game.player.directionX = -3;
+            game.player.directionX = -2;
             break;
           case "ArrowRight":
-            game.player.directionX = 2;
+            game.player.directionX = 1;
             break;
           case "ArrowUp":
             game.player.directionY = -1;

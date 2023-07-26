@@ -12,7 +12,7 @@ class Game {
     this.width = 1100;
     this.height = 618;
 
-    this.player = new Hamster(this.gameBoard, 50, 250, 75, 50);
+    this.player = new Hamster(this.gameBoard, 50, 250, 70, 40);
 
     this.obstacles = [];
     this.snakes = [];
