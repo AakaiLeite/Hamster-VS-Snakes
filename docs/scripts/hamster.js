@@ -9,7 +9,6 @@ class Hamster {
     this.directionY = 0;
 
     this.element = document.createElement("div");
-    this.element.src = "/docs/images/hamster.png";
     this.element.className = "hamster";
     this.element.style.position = "absolute";
     this.element.style.width = `${width}px`;
@@ -22,6 +21,7 @@ class Hamster {
   move() {
     this.left += this.directionX;
     this.top += this.directionY;
+    this.element.style.animation = "hamster-animation 0.3s steps(16) infinite";
 
     if (this.top + this.height > this.gameBoard.offsetHeight - 150) {
       this.top = this.gameBoard.offsetHeight - this.height - 150;
