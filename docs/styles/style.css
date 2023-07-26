@@ -132,11 +132,6 @@ button:hover {
   transform: rotate(-90deg);
   height: 50px;
 }
-/*
-#adjustInstructionsText{
-margin: 100px;
-}
-*/
 
 #high-score-container {
   display: flex;
@@ -231,6 +226,18 @@ margin: 100px;
   border-color: white;
   padding: 10px;
   border-radius: 10px;
+  animation: high-score-paragrah 1.5s linear infinite;
+}
+
+@keyframes high-score-paragrah {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: .5;
+  }
+  100%{
+    opacity: 1;}
 }
 
 #game-over-highscore > img {

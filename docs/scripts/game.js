@@ -173,8 +173,8 @@ class Game {
     } else {
       this.gameScreen.style.display = "none";
       this.gameEndScreen.style.display = "block";
+      this.newHighScoreScreen.style.display = "none";
     }
-
 
     this.obstacles = [];
     this.snakes = [];
