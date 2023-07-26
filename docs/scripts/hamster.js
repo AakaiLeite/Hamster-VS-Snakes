@@ -1,10 +1,10 @@
 class Hamster {
   constructor(gameBoard, left, top, width, height) {
     this.gameBoard = gameBoard;
-    this.left = left;
-    this.top = top;
-    this.width = width;
-    this.height = height;
+    this.left = 150;
+    this.top = 250;
+    this.width = 70;
+    this.height = 40;
     this.directionX = 0;
     this.directionY = 0;
 
