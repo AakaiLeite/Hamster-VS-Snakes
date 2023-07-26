@@ -1,3 +1,7 @@
+let backgroundMusic;
+let hamsterSqueak;
+let snakehiss;
+
 class Game {
   constructor() {
     this.gameIntro = document.getElementById("game-intro-container");
@@ -27,6 +31,7 @@ class Game {
     this.lives = 5;
 
     this.gameIsOver = false;
+
   }
   showInstructions() {
     this.gameIntro.style.display = "none";
@@ -48,8 +53,15 @@ class Game {
     this.gameEndScreen.style.disply = "none";
     this.newHighScoreScreen.style.display = "none";
 
-    let backgroundMusic = new Audio("/docs/sounds/background-music.mp3");
+    backgroundMusic = new Audio("/docs/sounds/background-music.mp3");
+    hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
+    snakehiss = new Audio("/docs/sounds/snake-hissing.mp3");
     backgroundMusic.volume = 0.2;
+    hamsterSqueak.volume = 0.3;
+    snakehiss.volume = 1;
+    hamsterSqueak.loop = false;
+    snakehiss.loop = false;
+    
     backgroundMusic.play();
 
     this.gameBoard.style.height = `${this.height}px`;
@@ -126,11 +138,8 @@ class Game {
         this.player.top = 250;
         snake.element.remove();
         this.snakes.splice(i, 1);
-        this.lives--;
-        let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
-        hamsterSqueak.loop = false;
         hamsterSqueak.play();
-        hamsterSqueak.volume = 0.3;
+        this.lives--;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
@@ -141,11 +150,8 @@ class Game {
       this.player.left = this.gameBoard.offsetWidth - this.player.width;
     } else if (this.player.left + this.player.width < 0) {
       this.player.left = 150;
-      this.lives--;
-      let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
-      hamsterSqueak.loop = false;
       hamsterSqueak.play();
-      hamsterSqueak.volume = 0.3;
+      this.lives--;
     }
   }
 
@@ -166,11 +172,8 @@ class Game {
     if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
       this.pushingSnakes = true;
       setTimeout(() => {
-        let snakehiss = new Audio("/docs/sounds/snake-hissing.mp3");
-        snakehiss.loop = false;
         snakehiss.play();
         this.snakes.push(new Snake(this.gameBoard));
-        snakehiss.volume = 1;
         this.pushingSnakes = false;
       }, 750);
     }
