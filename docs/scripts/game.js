@@ -81,7 +81,7 @@ class Game {
     this.player.move();
 
     this.numberOfObstacles = Math.floor(Math.random() * 3 + 1);
-    this.numberOfSnakes = Math.floor(this.score / 100) + 1;
+    this.numberOfSnakes = Math.floor(this.score / 200) + 2;
     this.numberOfFood = Math.floor(Math.random() * 3 + 1);
 
     this.spawnObstacle();
@@ -176,7 +176,7 @@ class Game {
       }, 750);
     }
   }
-  
+
   stopGame() {
     this.player.element.remove();
 
