@@ -7,6 +7,7 @@ class Game {
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
     this.gameEndScreen = document.getElementById("game-over");
+    this.newHighScoreScreen = document.getElementById("game-over-highscore");
     this.highscore = document.getElementById("high-score");
 
     this.width = 1100;
@@ -35,6 +36,7 @@ class Game {
     this.gameBoard.style.display = "none";
     this.uiScreen.style.display = "none";
     this.gameEndScreen.style.disply = "none";
+    this.newHighScoreScreen.style.display = "none";
   }
 
   initializeBoard() {
@@ -44,6 +46,7 @@ class Game {
     this.gameBoard.style.display = "block";
     this.uiScreen.style.display = "block";
     this.gameEndScreen.style.disply = "none";
+    this.newHighScoreScreen.style.display = "none";
 
     let backgroundMusic = new Audio("/docs/sounds/background-music.mp3");
     backgroundMusic.volume = 0.2;
@@ -161,14 +164,20 @@ class Game {
 
     this.gameIsOver = true;
 
+    this.setHighScore();
+
+    if (this.setHighScore()) {
+      this.gameScreen.style.display = "none";
+      this.gameEndScreen.style.display = "none";
+      this.newHighScoreScreen.style.display = "block";
+    }
+
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
 
     this.obstacles = [];
     this.snakes = [];
     this.food = [];
-
-    this.setHighScore();
   }
 
   spawnObstacle() {
@@ -214,5 +223,6 @@ class Game {
     }
 
     this.highscore.innerHTML = localStorage.getItem("high-score");
+    return true;
   }
 }

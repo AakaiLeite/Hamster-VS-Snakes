@@ -204,6 +204,10 @@ button:hover {
   margin: 20px;
 }
 
+#game-over-highscore {
+  display: none;
+}
+
 @keyframes snake-animation {
   0% {
     background-image: url("/docs/images/snake-animation/snake-moving-1.png");
