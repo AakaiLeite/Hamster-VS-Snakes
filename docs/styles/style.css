@@ -112,11 +112,6 @@ button:hover {
   margin: 500px;
   position: absolute;
 }
-/*
-#adjustInstructionsText{
-margin: 100px;
-}
-*/
 
 #high-score-container {
   display: flex;
@@ -211,11 +206,33 @@ margin: 100px;
   border-color: white;
   padding: 10px;
   border-radius: 10px;
+  animation: blink-highscore 1.5s linear infinite;
+}
+
+@keyframes blink-highscore {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: .5;
+  }
+  100%{
+    opacity: 1;}
 }
 
 #game-over-highscore > img {
   width: 350px;
   height: auto;
+}
+
+.snake {
+  width: 50px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: snake-animation 0.3s steps(16) infinite;
+  transform: rotate(90deg);
 }
 
 @keyframes snake-animation {
@@ -269,12 +286,63 @@ margin: 100px;
   }
 }
 
-.snake {
-  width: 50px;
-  height: 150px;
+.hamster {
+  width: 70px;
+  height: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  animation: snake-animation 0.3s steps(16) infinite;
-  transform: rotate(90deg);
+  animation: hamster-animation 0.3s steps(16) infinite;
+  transform: scaleX(-1);
+}
+
+@keyframes hamster-animation {
+  0% {
+    background-image: url("/docs/images/hamster-animation/hamster1.png");
+  }
+  4% {
+    background-image: url("/docs/images/hamster-animation/hamster2.png");
+  }
+  13% {
+    background-image: url("/docs/images/hamster-animation/hamster3.png");
+  }
+  18% {
+    background-image: url("/docs/images/hamster-animation/hamster4.png");
+  }
+  25% {
+    background-image: url("/docs/images/hamster-animation/hamster5.png");
+  }
+  32% {
+    background-image: url("/docs/images/hamster-animation/hamster6.png");
+  }
+  39% {
+    background-image: url("/docs/images/hamster-animation/hamster7.png");
+  }
+  46% {
+    background-image: url("/docs/images/hamster-animation/hamster8.png");
+  }
+  53% {
+    background-image: url("/docs/images/hamster-animation/hamster9.png");
+  }
+  60% {
+    background-image: url("/docs/images/hamster-animation/hamster10.png");
+  }
+  67% {
+    background-image: url("/docs/images/hamster-animation/hamster11.png");
+  }
+  74% {
+    background-image: url("/docs/images/hamster-animation/hamster12.png");
+  }
+  81% {
+    background-image: url("/docs/images/hamster-animation/hamster13.png");
+  }
+  87% {
+    background-image: url("/docs/images/hamster-animation/hamster14.png");
+  }
+  96% {
+    background-image: url("/docs/images/hamster-animation/hamster15.png");
+  }
+  100% {
+    background-image: url("/docs/images/hamster-animation/hamster1.png");
+  }
 }
