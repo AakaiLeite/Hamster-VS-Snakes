@@ -56,7 +56,7 @@ class Hamster {
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-  
+
     this.top = Math.floor(Math.random() * 380 + 90);
     this.right = this.gameScreen.clientWidth;
     this.width = 80;
@@ -98,13 +98,12 @@ class Snake {
     this.element.style.width = `${this.width}px`;
 
     this.gameScreen.appendChild(this.element);
-
-}
-updatePosition() {
+  }
+  updatePosition() {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-}
-move() {
+  }
+  move() {
     this.left += 1;
     this.element.style.animation = "snake-animation 0.3s steps(16) infinite";
     this.updatePosition();
@@ -118,7 +117,7 @@ class Food {
     this.left = this.gameScreen.clientWidth;
     this.width = 55;
     this.height = 40;
-    
+
     this.element = document.createElement("img");
     this.element.src = "/docs/images/food-berries.png";
     this.element.style.position = "absolute";

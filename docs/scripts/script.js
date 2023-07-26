@@ -4,7 +4,9 @@ window.onload = function () {
   const returnButton = document.getElementById("return-button");
   const restartButton = document.getElementById("restart-button");
   const highscore = document.getElementById("high-score");
-  const highscoreRestartButton = document.getElementById("restart-button-highscore");
+  const highscoreRestartButton = document.getElementById(
+    "restart-button-highscore"
+  );
   highscore.innerHTML = localStorage.getItem("high-score");
   let game;
 

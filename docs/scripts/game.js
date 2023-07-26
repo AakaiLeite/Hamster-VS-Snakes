@@ -28,7 +28,6 @@ class Game {
     this.lives = 5;
 
     this.gameIsOver = false;
-
   }
   showInstructions() {
     this.gameIntro.style.display = "none";
@@ -49,8 +48,8 @@ class Game {
     this.uiScreen.style.display = "block";
     this.gameEndScreen.style.disply = "none";
     this.newHighScoreScreen.style.display = "none";
-    
-    sounds.playBackgroundMusic()
+
+    sounds.playBackgroundMusic();
 
     this.gameBoard.style.height = `${this.height}px`;
     this.gameBoard.style.width = `${this.width}px`;
@@ -98,6 +97,7 @@ class Game {
       food.move();
       if (this.player.checkCollision(food)) {
         food.element.remove();
+        sounds.playHamsterEat();
         this.food.splice(i, 1);
         this.score += 10;
       } else if (food.right <= 0) {
@@ -126,7 +126,7 @@ class Game {
         this.player.top = 250;
         snake.element.remove();
         this.snakes.splice(i, 1);
-        sounds.playHamsterSqueak()
+        sounds.playHamsterSqueak();
         this.lives--;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
@@ -138,7 +138,7 @@ class Game {
       this.player.left = this.gameBoard.offsetWidth - this.player.width;
     } else if (this.player.left + this.player.width < 0) {
       this.player.left = 150;
-      sounds.playHamsterSqueak()
+      sounds.playHamsterSqueak();
       this.lives--;
     }
   }
@@ -160,7 +160,7 @@ class Game {
     if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
       this.pushingSnakes = true;
       setTimeout(() => {
-        sounds.playSnakeHiss()
+        sounds.playSnakeHiss();
         this.snakes.push(new Snake(this.gameBoard));
         this.pushingSnakes = false;
       }, 750);
@@ -176,7 +176,7 @@ class Game {
       }, 2500);
     }
   }
-  
+
   stopGame() {
     this.player.element.remove();
 
