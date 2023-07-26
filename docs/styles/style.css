@@ -95,11 +95,13 @@ button:hover {
 }
 
 #game-instructions img{
-  margin-right: 150px;
+  align-items: flex-start;
 }
 
 #game-instructions span {
   justify-content: space-around;
+  align-items: flex-end;
+  margin: 50px;
 }
 
 .snake-img {
