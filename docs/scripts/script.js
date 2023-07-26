@@ -13,14 +13,13 @@ window.onload = function () {
     game.initializeBoard();
   }
 
+  // Add event listener for buttons
   startButton.addEventListener("click", () => {
     startGame();
   });
-
    instructionButton.addEventListener("click", () => {
     game.showInstructions();
   });
-  
   restartButton.addEventListener("click", () => {
     location.reload();
   });
@@ -88,5 +87,4 @@ window.onload = function () {
   //Associate the handleKeyDown and handleKeyUp functions with the Event Listener
   window.addEventListener("keydown", handleKeyDown);
   window.addEventListener("keyup", handleKeyUp);
-
 };

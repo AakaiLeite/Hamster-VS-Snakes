@@ -42,7 +42,17 @@ class Game {
     // gameOver flag
     this.gameIsOver = false;
   }
-
+  // Show instructions
+  showInstructions() {
+    this.gameIntro.style.display = "none";
+    this.gameinstructions.style.display = "flex";
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+    this.gameEndScreen.style.disply = "none";
+  }
+  
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
     // Swap Screens
@@ -106,7 +116,7 @@ class Game {
     this.spawnFood();
 
     // Kill the player if he crosses the left boundary
-    if (this.player.left <= 0) {
+    if (this.player.left <= 0 - 150) {
       this.lives - 1;
     }
 
@@ -121,7 +131,7 @@ class Game {
         this.player.left -= 2;
       }
       // Check if the obstacle is still on screen
-      else if (obstacle.right <= 0) {
+      else if (obstacle.right + obstacle.width <= 0) {
         // Remove the obstacle from the DOM
         obstacle.element.remove();
         // Remove the obstacle from the array
@@ -137,6 +147,10 @@ class Game {
         // Respawn the player
         this.player.left = 50;
         this.player.top = 250;
+        // Remove the snake from the dom
+        snake.element.remove();
+        // Remove the snake from the array
+        this.snakes.splice(i, 1);
         //Redduce player's lives b 1
         this.lives--;
       }
@@ -243,18 +257,6 @@ class Game {
         this.pushingFood = false;
       }, 2500);
     }
-  }
-
-  // Create a function that checks collisions
-
-  showInstructions() {
-    this.gameIntro.style.display = "none";
-    this.startScreen.style.display = "none";
-    this.gameInstructions.style.display = "block";
-    this.gameScreen.style.display = "none";
-    this.gameBoard.style.display = "none";
-    this.uiScreen.style.display = "none";
-    this.gameEndScreen.style.display = "none";
   }
 
   setHighScore() {
