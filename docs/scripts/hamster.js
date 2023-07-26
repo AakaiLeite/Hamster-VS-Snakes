@@ -8,14 +8,14 @@ class Hamster {
     this.directionX = 0;
     this.directionY = 0;
 
-    this.element = document.createElement("img");
+    this.element = document.createElement("div");
     this.element.src = "/docs/images/hamster.png";
+    this.element.className = "hamster";
     this.element.style.position = "absolute";
     this.element.style.width = `${width}px`;
     this.element.style.height = `${height}px`;
     this.element.style.left = `${left}px`;
     this.element.style.top = `${top}px`;
-    this.element.style.transform = "scaleX(-1)";
     this.gameBoard.appendChild(this.element);
   }
 

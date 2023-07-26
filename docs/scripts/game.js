@@ -90,7 +90,7 @@ class Game {
     this.spawnFood();
 
     if (this.player.left <= 0 - 150) {
-      this.lives - 1;
+      this.lives--;
     }
 
     for (let i = 0; i < this.obstacles.length; i++) {
@@ -221,9 +221,9 @@ class Game {
   setHighScore() {
     if (this.score > this.highscore.innerHTML) {
       localStorage.setItem("high-score", this.score);
+      return true;
     }
 
     this.highscore.innerHTML = localStorage.getItem("high-score");
-    return true;
   }
 }
