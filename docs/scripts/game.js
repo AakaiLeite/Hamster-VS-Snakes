@@ -45,7 +45,7 @@ class Game {
   // Show instructions
   showInstructions() {
     this.gameIntro.style.display = "none";
-    this.gameinstructions.style.display = "flex";
+    this.gameInstructions.style.display = "flex";
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "none";
     this.gameBoard.style.display = "none";
