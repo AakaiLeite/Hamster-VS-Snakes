@@ -42,7 +42,17 @@ class Game {
     // gameOver flag
     this.gameIsOver = false;
   }
-
+  // Show instructions
+  showInstructions() {
+    this.gameIntro.style.display = "none";
+    this.gameinstructions.style.display = "flex";
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+    this.gameEndScreen.style.disply = "none";
+  }
+  
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
     // Swap Screens
@@ -247,18 +257,6 @@ class Game {
         this.pushingFood = false;
       }, 2500);
     }
-  }
-
-  // Create a function that checks collisions
-
-  showInstructions() {
-    this.gameIntro.style.display = "none";
-    this.startScreen.style.display = "none";
-    this.gameInstructions.style.display = "block";
-    this.gameScreen.style.display = "none";
-    this.gameBoard.style.display = "none";
-    this.uiScreen.style.display = "none";
-    this.gameEndScreen.style.display = "none";
   }
 
   setHighScore() {

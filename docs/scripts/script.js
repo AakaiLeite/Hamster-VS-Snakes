@@ -24,17 +24,6 @@ window.onload = function () {
     location.reload();
   });
 
-  // Show instructions function
- function showInstructions(){
-    this.gameIntro.style.display = "none";
-    this.gameinstructions.style.display = "flex";
-    this.startScreen.style.display = "none";
-    this.gameScreen.style.display = "none";
-    this.gameBoard.style.display = "none";
-    this.uiScreen.style.display = "none";
-    this.gameEndScreen.style.disply = "none";
-  }
-
   // Function that handles keydown events
   function handleKeyDown(event) {
     const key = event.key;
