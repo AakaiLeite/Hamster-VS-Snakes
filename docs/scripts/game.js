@@ -111,6 +111,10 @@ class Game {
         snake.element.remove();
         this.snakes.splice(i, 1);
         this.lives--;
+        let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
+        hamsterSqueak.loop = false;
+        hamsterSqueak.play();
+        hamsterSqueak.volume = 0.5;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
@@ -134,7 +138,11 @@ class Game {
       this.player.left = this.gameBoard.offsetWidth - this.player.width;
     } else if (this.player.left + this.player.width < 0) {
       this.player.left = 150;
-      this.lives--
+      this.lives--;
+      let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
+      hamsterSqueak.loop = false;
+      hamsterSqueak.play();
+      hamsterSqueak.volume = 0.5;
     }
   }
 
@@ -186,7 +194,6 @@ class Game {
         this.snakes.push(new Snake(this.gameBoard));
         snakehiss.volume = 1;
         this.pushingSnakes = false;
-        console.log("pushing snakes", this.snakes);
       }, 750);
     }
   }
@@ -207,9 +214,5 @@ class Game {
     }
 
     this.highscore.innerHTML = localStorage.getItem("high-score");
-    console.log("score",this.score)
-    console.log("highscore",this.highscore)
-    console.log("hs inner html",this.highscore.innerHTML)
-
   }
 }
