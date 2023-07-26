@@ -81,7 +81,7 @@ class Game {
     this.player.move();
 
     this.numberOfObstacles = Math.floor(Math.random() * 3 + 1);
-    this.numberOfSnakes = 3;
+    this.numberOfSnakes = Math.floor(this.score / 100) + 1;
     this.numberOfFood = Math.floor(Math.random() * 3 + 1);
 
     this.spawnObstacle();
@@ -156,17 +156,6 @@ class Game {
     }
   }
 
-  spawnSnake() {
-    if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
-      this.pushingSnakes = true;
-      setTimeout(() => {
-        sounds.playSnakeHiss();
-        this.snakes.push(new Snake(this.gameBoard));
-        this.pushingSnakes = false;
-      }, 750);
-    }
-  }
-
   spawnFood() {
     if (this.food.length !== this.numberOfFood && !this.pushingFood) {
       this.pushingFood = true;
@@ -177,6 +166,17 @@ class Game {
     }
   }
 
+  spawnSnake() {
+    if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
+      this.pushingSnakes = true;
+      setTimeout(() => {
+        sounds.playSnakeHiss();
+        this.snakes.push(new Snake(this.gameBoard));
+        this.pushingSnakes = false;
+      }, 750);
+    }
+  }
+  
   stopGame() {
     this.player.element.remove();
 
