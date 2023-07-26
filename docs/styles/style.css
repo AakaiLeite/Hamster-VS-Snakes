@@ -83,6 +83,13 @@ button:hover {
   font-size: 40px;
   text-align: center;
   color: white;
+  text-decoration: underline;
+  margin: 20px;
+}
+
+#instructions-img-text {
+  display: flex;
+  flex-direction: row;
 }
 
 #game-instructions ul {
@@ -92,22 +99,24 @@ button:hover {
   text-align: end;
   flex-direction: column;
   color: white;
+  font-size: 18px;
 }
 
-#game-instructions img{
+#game-instructions img {
   align-items: flex-start;
 }
 
 #game-instructions span {
   justify-content: space-around;
   align-items: flex-end;
-  margin: 50px;
+  margin: 100px;
+  line-height: 80px;
 }
 
 .snake-img {
   transform: rotate(90deg);
 }
-#return-button{
+#return-button {
   align-items: flex-end;
   width: 200px;
   height: 70px;
@@ -212,14 +221,15 @@ button:hover {
 }
 
 @keyframes blink-highscore {
-  0%{
+  0% {
     opacity: 0;
   }
-  50%{
-    opacity: .5;
+  50% {
+    opacity: 0.5;
   }
-  100%{
-    opacity: 1;}
+  100% {
+    opacity: 1;
+  }
 }
 
 #game-over-highscore > img {
