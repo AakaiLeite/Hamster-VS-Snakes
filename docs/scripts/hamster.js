@@ -23,13 +23,6 @@ class Hamster {
     this.left += this.directionX;
     this.top += this.directionY;
 
-    if (this.left + this.width > this.gameBoard.offsetWidth) {
-      this.left = this.gameBoard.offsetWidth - this.width;
-    } else if (this.left + this.width < 0) {
-      this.left = 150;
-    }
-
-
     if (this.top + this.height > this.gameBoard.offsetHeight - 150) {
       this.top = this.gameBoard.offsetHeight - this.height - 150;
     } else if (this.top < 130) {
@@ -47,7 +40,7 @@ class Hamster {
   checkCollision(obstacle) {
     const playerRect = this.element.getBoundingClientRect();
     const obstacleRect = obstacle.element.getBoundingClientRect();
-  
+
     if (
       playerRect.left < obstacleRect.right &&
       playerRect.right > obstacleRect.left &&

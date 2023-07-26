@@ -7,6 +7,7 @@ class Game {
     this.gameBoard = document.getElementById("game-board");
     this.uiScreen = document.getElementById("ui-screen");
     this.gameEndScreen = document.getElementById("game-over");
+    this.highscore = document.getElementById("high-score");
 
     this.width = 1100;
     this.height = 618;
@@ -113,7 +114,6 @@ class Game {
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
-        console.log(this.snakes);
       }
     }
 
@@ -126,13 +126,15 @@ class Game {
         this.score += 10;
       } else if (food.right <= 0) {
         food.element.remove();
-        console.log("removed food");
         this.food.splice(i, 1);
       }
     }
 
-    if (this.player.left + this.player.width <= 0) {
-      this.lives--;
+    if (this.player.left + this.player.width > this.gameBoard.offsetWidth) {
+      this.player.left = this.gameBoard.offsetWidth - this.player.width;
+    } else if (this.player.left + this.player.width < 0) {
+      this.player.left = 150;
+      this.lives--
     }
   }
 
@@ -200,12 +202,14 @@ class Game {
   }
 
   setHighScore() {
-    let highscore = document.getElementById("high-score");
-
-    if (this.score > highscore.innerHTML) {
+    if (this.score > this.highscore.innerHTML) {
       localStorage.setItem("high-score", this.score);
     }
 
-    highscore.innerHTML = localStorage.getItem("high-score");
+    this.highscore.innerHTML = localStorage.getItem("high-score");
+    console.log("score",this.score)
+    console.log("highscore",this.highscore)
+    console.log("hs inner html",this.highscore.innerHTML)
+
   }
 }

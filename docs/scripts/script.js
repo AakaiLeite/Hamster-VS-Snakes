@@ -2,7 +2,8 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const instructionButton = document.getElementById("instructions-button");
   const restartButton = document.getElementById("restart-button");
-
+  const highscore = document.getElementById("high-score");
+  highscore.innerHTML = localStorage.getItem("high-score");
   let game;
 
   function startGame() {
@@ -16,7 +17,7 @@ window.onload = function () {
   startButton.addEventListener("click", () => {
     startGame();
   });
-   instructionButton.addEventListener("click", () => {
+  instructionButton.addEventListener("click", () => {
     game.showInstructions();
   });
   restartButton.addEventListener("click", () => {
@@ -47,7 +48,6 @@ window.onload = function () {
       }
     }
   }
-
 
   function handleKeyUp(event) {
     const key = event.key;
