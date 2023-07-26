@@ -25,7 +25,7 @@ class Hamster {
 
     if (this.left + this.width > this.gameBoard.offsetWidth) {
       this.left = this.gameBoard.offsetWidth - this.width;
-    } else if (this.left < 0) {
+    } else if (this.left + this.width < 0) {
       this.left = 150;
     }
 

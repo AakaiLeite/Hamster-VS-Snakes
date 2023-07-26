@@ -131,7 +131,7 @@ class Game {
       }
     }
 
-    if (this.player.left <= 0) {
+    if (this.player.left + this.player.width <= 0) {
       this.lives--;
     }
   }
