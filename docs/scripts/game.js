@@ -25,7 +25,8 @@ class Game {
     this.pushingFood = false;
 
     this.score = 0;
-    this.lives = 5;
+    this.lives = 3;
+    this.combo = 0;
 
     this.gameIsOver = false;
   }
@@ -73,6 +74,7 @@ class Game {
 
     score.innerHTML = this.score;
     lives.innerHTML = this.lives;
+    combo.innerHTML = this.combo
 
     if (this.lives === 0) {
       this.stopGame();
@@ -100,6 +102,10 @@ class Game {
         sounds.playHamsterEat();
         this.food.splice(i, 1);
         this.score += 10;
+        this.combo++
+        if (this.combo % 10 === 0) {
+          this.lives++ 
+        }
       } else if (food.right <= 0) {
         food.element.remove();
         this.food.splice(i, 1);
@@ -112,6 +118,7 @@ class Game {
       if (this.player.checkCollision(obstacle)) {
         this.player.directionX = 0;
         this.player.left -= 2;
+        this.combo = 0;
       } else if (obstacle.right + obstacle.width <= 0) {
         obstacle.element.remove();
         this.obstacles.splice(i, 1);
@@ -128,10 +135,11 @@ class Game {
         this.snakes.splice(i, 1);
         sounds.playHamsterSqueak();
         this.lives--;
+        this.combo = 0;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
-      }
+      } 
     }
 
     if (this.player.left + this.player.width > this.gameBoard.offsetWidth) {
