@@ -114,7 +114,7 @@ class Game {
         let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
         hamsterSqueak.loop = false;
         hamsterSqueak.play();
-        hamsterSqueak.volume = 0.5;
+        hamsterSqueak.volume = 0.3;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
@@ -142,7 +142,7 @@ class Game {
       let hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
       hamsterSqueak.loop = false;
       hamsterSqueak.play();
-      hamsterSqueak.volume = 0.5;
+      hamsterSqueak.volume = 0.3;
     }
   }
 

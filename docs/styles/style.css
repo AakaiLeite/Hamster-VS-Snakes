@@ -163,6 +163,15 @@ button:hover {
   animation: slide 6s linear infinite;
 }
 
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1100px 0;
+  }
+}
+
 #ui-screen {
   display: block;
   text-align: center;
@@ -176,15 +185,6 @@ button:hover {
   border-radius: 5px;
   color: white;
   font-size: 20px;
-}
-
-@keyframes slide {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -1100px 0;
-  }
 }
 
 #game-over {
