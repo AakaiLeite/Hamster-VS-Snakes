@@ -168,12 +168,13 @@ class Game {
 
     if (this.setHighScore()) {
       this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.display = "none";
+      this.gameEndScreen.style.disply = "none";
       this.newHighScoreScreen.style.display = "block";
+    } else {
+      this.gameScreen.style.display = "none";
+      this.gameEndScreen.style.display = "block";
     }
 
-    this.gameScreen.style.display = "none";
-    this.gameEndScreen.style.display = "block";
 
     this.obstacles = [];
     this.snakes = [];

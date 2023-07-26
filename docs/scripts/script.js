@@ -3,6 +3,9 @@ window.onload = function () {
   const instructionButton = document.getElementById("instructions-button");
   const restartButton = document.getElementById("restart-button");
   const highscore = document.getElementById("high-score");
+  const highscoreRestartButton = document.getElementById(
+    "restart-button-highscore"
+  );
   highscore.innerHTML = localStorage.getItem("high-score");
   let game;
 
@@ -17,11 +20,14 @@ window.onload = function () {
   startButton.addEventListener("click", () => {
     startGame();
   });
-   instructionButton.addEventListener("click", () => {
+  instructionButton.addEventListener("click", () => {
     game = new Game();
     game.showInstructions();
   });
   restartButton.addEventListener("click", () => {
+    location.reload();
+  });
+  highscoreRestartButton.addEventListener("click", () => {
     location.reload();
   });
 

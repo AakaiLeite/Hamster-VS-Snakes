@@ -64,7 +64,7 @@ button:hover {
 
 #game-instructions {
   display: none;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   border-style: solid;
@@ -96,7 +96,7 @@ button:hover {
   font-size: 30px;
   color: white;
   margin-bottom: 100px;
-} 
+}
 #game-instructions span {
   justify-content: space-around;
 }
@@ -114,20 +114,20 @@ button:hover {
   border-color: black;
 }
 
-#img-text-inst{
+#img-text-inst {
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   width: 600px;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
-#adjustInstructionsImage{
+#adjustInstructionsImage {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   margin-right: px;
 }
 
-#sake-image{
+#sake-image {
   display: flex;
   transform: rotate(-90deg);
   height: 50px;
@@ -219,6 +219,19 @@ margin: 100px;
 
 #game-over-highscore {
   display: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#game-over-highscore > #high-score-paragrah {
+  color: red;
+}
+
+#game-over-highscore > img {
+  width: 350px;
+  height: auto;
 }
 
 @keyframes snake-animation {
