@@ -106,7 +106,7 @@ class Game {
     this.spawnFood();
 
     // Kill the player if he crosses the left boundary
-    if (this.player.left <= 0) {
+    if (this.player.left <= 0 - 150) {
       this.lives - 1;
     }
 

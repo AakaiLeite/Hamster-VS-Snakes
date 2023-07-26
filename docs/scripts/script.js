@@ -89,4 +89,13 @@ window.onload = function () {
   window.addEventListener("keydown", handleKeyDown);
   window.addEventListener("keyup", handleKeyUp);
 
+  showInstructions(){
+    this.gameIntro.style.display = "none";
+    this.gameinstructions.style.display = "flex";
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.gameBoard.style.display = "none";
+    this.uiScreen.style.display = "none";
+    this.gameEndScreen.style.disply = "none";
+  }
 };
