@@ -80,7 +80,6 @@ button:hover {
   margin-top: 50px;
   font-size: 40px;
   text-align: center;
-
 }
 
 #game-instructions ul {
@@ -94,12 +93,9 @@ button:hover {
   flex-direction: column;
   font-size: 30px;
   color: white;
-  
-  
-} 
+}
 #game-instructions span {
   justify-content: space-around;
-
 }
 
 #game-instructions {
@@ -113,22 +109,21 @@ button:hover {
   border-color: red;
 }
 
-.adjustInstructionsImage{
-display:flex;
-width: 30%;
-border: 10px;
-border-style: solid;
-border-color: red;
+.adjustInstructionsImage {
+  display: flex;
+  width: 30%;
+  border: 10px;
+  border-style: solid;
+  border-color: red;
 }
 
-.adjustInstructionsText{
-  display:flex;
+.adjustInstructionsText {
+  display: flex;
   width: 30%;
   font-size: 30px;
   border-style: solid;
   border-color: red;
-  }
-
+}
 
 #high-score-container {
   display: flex;
@@ -207,4 +202,29 @@ border-color: red;
 
 #game-over > button {
   margin: 20px;
+}
+
+@keyframes snake-animation {
+  0% {
+    background-image: url("/docs/images/snake-moving-1.png");
+  }
+  33% {
+    background-image: url("/docs/images/snake-moving-2.png");
+  }
+  66% {
+    background-image: url("/docs/images/snake-moving-1.png");
+  }
+  100% {
+    background-image: url("/docs/images/snake-moving-2.png");
+  }
+}
+
+.snake {
+  width: 50px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: snake-animation 0.3s steps(4) infinite;
+  transform: rotate(90deg);
 }

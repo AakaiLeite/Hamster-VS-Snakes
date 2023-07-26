@@ -52,11 +52,12 @@ class Game {
     this.uiScreen.style.display = "none";
     this.gameEndScreen.style.disply = "none";
   }
-  
+
   // Set parameters for game screen. Start the game loop
   initializeBoard() {
     // Swap Screens
     this.gameIntro.style.display = "none";
+    this.gameinstructions.style.display = "none";
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.gameBoard.style.display = "block";
@@ -260,19 +261,12 @@ class Game {
   }
 
   setHighScore() {
-    this.highscore = document.getElementById("high-score");
-    let localStorage = window.localStorage;
+    let highscore = document.getElementById("high-score");
 
-    // Retrieve the high score from local storage and parse it as an integer
-    let storedHighScore = parseInt(localStorage.getItem("highscore"));
-
-    // Display the stored high score on the page
-    this.highscore.innerHTML = storedHighScore || 0;
-
-    if (this.score > storedHighScore) {
-      // If the current score is higher than the stored high score, update it
-      this.highscore.innerHTML = this.score;
-      localStorage.setItem("highscore", this.score);
+    if (this.score > highscore.innerHTML) {
+      localStorage.setItem("high-score", this.score);
     }
+
+    highscore.innerHTML = localStorage.getItem("high-score");
   }
 }
