@@ -1,6 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const instructionButton = document.getElementById("instructions-button");
+  const returnButton = document.getElementById("return-button");
   const restartButton = document.getElementById("restart-button");
   const highscore = document.getElementById("high-score");
   const highscoreRestartButton = document.getElementById(
@@ -28,6 +29,9 @@ window.onload = function () {
     location.reload();
   });
   highscoreRestartButton.addEventListener("click", () => {
+    location.reload();
+  });
+  returnButton.addEventListener("click", () => {
     location.reload();
   });
 
