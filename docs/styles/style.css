@@ -222,11 +222,15 @@ margin: 100px;
   color: white;
   font-weight: bold;
   text-align: center;
-  font-weight: bolder;
 }
 
 #game-over-highscore > #high-score-paragrah {
   color: red;
+  font-weight: bolder;
+  border: dashed;
+  border-color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 #game-over-highscore > img {
