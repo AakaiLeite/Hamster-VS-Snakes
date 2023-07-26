@@ -95,6 +95,7 @@ button:hover {
 #game-instructions ul {
   margin-top: 90px;
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   text-align: end;
   flex-direction: column;
