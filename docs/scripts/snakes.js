@@ -15,7 +15,7 @@ class Snake {
     this.height = 150;
     // Create the HTML element and default styling
     this.element = document.createElement("img");
-    this.element.src = "/docs/images/snake.png";
+    this.element.src = setInterval(this.animate, 100);
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
@@ -36,13 +36,20 @@ class Snake {
     this.left += 1;
     this.updatePosition();
   }
-}
-/*
 
-    
-    // Optional: animate the snake
-    animate()
-    
-    // Optional: adjust speed of the snake
-    adjustSpeed()
-*/
+  animate() {
+    let snakeArray = [1, 2];
+    setTimeout(() => {
+      snakeArray.forEach((index) => {
+        switch (index) {
+          case "1":
+            imgSrc = "/docs/images/snake-moving-1.png";
+            break;
+          case "2":
+            imgSrc = "/docs/images/snake-moving-2.png";
+            break;
+        }
+      });
+    }, 500);
+  }
+}
