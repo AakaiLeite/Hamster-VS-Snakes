@@ -1,7 +1,3 @@
-let backgroundMusic;
-let hamsterSqueak;
-let snakehiss;
-
 class Game {
   constructor() {
     this.gameIntro = document.getElementById("game-intro-container");
@@ -18,6 +14,7 @@ class Game {
     this.height = 618;
 
     this.player = new Hamster(this.gameBoard);
+    this.sounds = new Sounds();
 
     this.obstacles = [];
     this.snakes = [];
@@ -52,17 +49,8 @@ class Game {
     this.uiScreen.style.display = "block";
     this.gameEndScreen.style.disply = "none";
     this.newHighScoreScreen.style.display = "none";
-
-    backgroundMusic = new Audio("/docs/sounds/background-music.mp3");
-    hamsterSqueak = new Audio("/docs/sounds/hamster-squeak.mp3");
-    snakehiss = new Audio("/docs/sounds/snake-hissing.mp3");
-    backgroundMusic.volume = 0.2;
-    hamsterSqueak.volume = 0.3;
-    snakehiss.volume = 1;
-    hamsterSqueak.loop = false;
-    snakehiss.loop = false;
     
-    backgroundMusic.play();
+    sounds.playBackgroundMusic()
 
     this.gameBoard.style.height = `${this.height}px`;
     this.gameBoard.style.width = `${this.width}px`;
@@ -138,7 +126,7 @@ class Game {
         this.player.top = 250;
         snake.element.remove();
         this.snakes.splice(i, 1);
-        hamsterSqueak.play();
+        sounds.playHamsterSqueak()
         this.lives--;
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
@@ -150,7 +138,7 @@ class Game {
       this.player.left = this.gameBoard.offsetWidth - this.player.width;
     } else if (this.player.left + this.player.width < 0) {
       this.player.left = 150;
-      hamsterSqueak.play();
+      sounds.playHamsterSqueak()
       this.lives--;
     }
   }
@@ -172,7 +160,7 @@ class Game {
     if (this.snakes.length !== this.numberOfSnakes && !this.pushingSnakes) {
       this.pushingSnakes = true;
       setTimeout(() => {
-        snakehiss.play();
+        sounds.playSnakeHiss()
         this.snakes.push(new Snake(this.gameBoard));
         this.pushingSnakes = false;
       }, 750);

@@ -12,6 +12,7 @@ window.onload = function () {
     console.log("start game");
 
     game = new Game();
+    sounds = new Sounds();
 
     game.initializeBoard();
   }
