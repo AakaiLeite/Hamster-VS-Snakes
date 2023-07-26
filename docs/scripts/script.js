@@ -17,7 +17,7 @@ window.onload = function () {
   startButton.addEventListener("click", () => {
     startGame();
   });
-  instructionButton.addEventListener("click", () => {
+   instructionButton.addEventListener("click", () => {
     game.showInstructions();
   });
   restartButton.addEventListener("click", () => {
