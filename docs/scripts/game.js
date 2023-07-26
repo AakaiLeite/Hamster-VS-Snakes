@@ -93,6 +93,19 @@ class Game {
       this.lives--;
     }
 
+    for (let i = 0; i < this.food.length; i++) {
+      const food = this.food[i];
+      food.move();
+      if (this.player.checkCollision(food)) {
+        food.element.remove();
+        this.food.splice(i, 1);
+        this.score += 10;
+      } else if (food.right <= 0) {
+        food.element.remove();
+        this.food.splice(i, 1);
+      }
+    }
+
     for (let i = 0; i < this.obstacles.length; i++) {
       const obstacle = this.obstacles[i];
       obstacle.move();
@@ -124,19 +137,6 @@ class Game {
       }
     }
 
-    for (let i = 0; i < this.food.length; i++) {
-      const food = this.food[i];
-      food.move();
-      if (this.player.checkCollision(food)) {
-        food.element.remove();
-        this.food.splice(i, 1);
-        this.score += 10;
-      } else if (food.right <= 0) {
-        food.element.remove();
-        this.food.splice(i, 1);
-      }
-    }
-
     if (this.player.left + this.player.width > this.gameBoard.offsetWidth) {
       this.player.left = this.gameBoard.offsetWidth - this.player.width;
     } else if (this.player.left + this.player.width < 0) {
@@ -147,38 +147,6 @@ class Game {
       hamsterSqueak.play();
       hamsterSqueak.volume = 0.3;
     }
-  }
-
-  stopGame() {
-    this.player.element.remove();
-
-    this.obstacles.forEach((obstacle) => {
-      obstacle.element.remove();
-    });
-    this.snakes.forEach((snake) => {
-      snake.element.remove();
-    });
-    this.food.forEach((food) => {
-      food.element.remove();
-    });
-
-    this.gameIsOver = true;
-
-    this.setHighScore();
-
-    if (this.setHighScore()) {
-      this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.disply = "none";
-      this.newHighScoreScreen.style.display = "block";
-    } else {
-      this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.display = "block";
-      this.newHighScoreScreen.style.display = "none";
-    }
-
-    this.obstacles = [];
-    this.snakes = [];
-    this.food = [];
   }
 
   spawnObstacle() {
@@ -216,6 +184,38 @@ class Game {
         this.pushingFood = false;
       }, 2500);
     }
+  }
+  
+  stopGame() {
+    this.player.element.remove();
+
+    this.obstacles.forEach((obstacle) => {
+      obstacle.element.remove();
+    });
+    this.snakes.forEach((snake) => {
+      snake.element.remove();
+    });
+    this.food.forEach((food) => {
+      food.element.remove();
+    });
+
+    this.gameIsOver = true;
+
+    this.setHighScore();
+
+    if (this.setHighScore()) {
+      this.gameScreen.style.display = "none";
+      this.gameEndScreen.style.disply = "none";
+      this.newHighScoreScreen.style.display = "block";
+    } else {
+      this.gameScreen.style.display = "none";
+      this.gameEndScreen.style.display = "block";
+      this.newHighScoreScreen.style.display = "none";
+    }
+
+    this.obstacles = [];
+    this.snakes = [];
+    this.food = [];
   }
 
   setHighScore() {
