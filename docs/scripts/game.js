@@ -10,8 +10,8 @@ class Game {
     this.newHighScoreScreen = document.getElementById("game-over-highscore");
     this.highscore = document.getElementById("high-score");
 
-    this.width = 1100;
-    this.height = 618;
+    this.width = this.gameBoard.offsetWidth;
+    this.height = this.gameBoard.offsetHeight;
 
     this.player = new Hamster(this.gameBoard);
     this.sounds = new Sounds();
@@ -52,9 +52,6 @@ class Game {
 
     sounds.playBackgroundMusic();
 
-    this.gameBoard.style.height = `${this.height}px`;
-    this.gameBoard.style.width = `${this.width}px`;
-
     this.gameLoop();
   }
 
@@ -74,7 +71,7 @@ class Game {
 
     score.innerHTML = this.score;
     lives.innerHTML = this.lives;
-    combo.innerHTML = this.combo
+    combo.innerHTML = this.combo;
 
     if (this.lives === 0) {
       this.stopGame();
@@ -102,9 +99,9 @@ class Game {
         sounds.playHamsterEat();
         this.food.splice(i, 1);
         this.score += 10;
-        this.combo++
+        this.combo++;
         if (this.combo % 10 === 0) {
-          this.lives++ 
+          this.lives++;
         }
       } else if (food.right <= 0) {
         food.element.remove();
@@ -139,7 +136,7 @@ class Game {
       } else if (snake.left >= this.gameScreen.clientWidth) {
         snake.element.remove();
         this.snakes.splice(i, 1);
-      } 
+      }
     }
 
     if (this.player.left + this.player.width > this.gameBoard.offsetWidth) {

@@ -142,7 +142,8 @@ button:hover {
   border-style: solid;
   border-radius: 5px;
   align-self: flex-end;
-  height: auto;
+  width: 1100px;
+  height: 618px;
   margin: 5px;
   padding: 0px;
   overflow: hidden;
