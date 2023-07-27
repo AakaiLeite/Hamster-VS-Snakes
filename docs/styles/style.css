@@ -264,52 +264,52 @@ button:hover {
 
 @keyframes snake-animation {
   0% {
-    background-image: url("docs/images/snake-animation/snake-moving-1.png");
+    background-image: url(../images/snake-animation/snake-moving-1.png);
   }
   4% {
-    background-image: url("docs/images/snake-animation/snake-moving-2.png");
+    background-image: url(../images/snake-animation/snake-moving-2.png);
   }
   13% {
-    background-image: url("docs/images/snake-animation/snake-moving-3.png");
+    background-image: url(../images/snake-animation/snake-moving-3.png);
   }
   18% {
-    background-image: url("docs/images/snake-animation/snake-moving-4.png");
+    background-image: url(../images/snake-animation/snake-moving-4.png);
   }
   25% {
-    background-image: url("docs/images/snake-animation/snake-moving-5.png");
+    background-image: url(../images/snake-animation/snake-moving-5.png);
   }
   32% {
-    background-image: url("docs/images/snake-animation/snake-moving-6.png");
+    background-image: url(../images/snake-animation/snake-moving-6.png);
   }
   39% {
-    background-image: url("docs/images/snake-animation/snake-moving-7.png");
+    background-image: url(../images/snake-animation/snake-moving-7.png);
   }
   46% {
-    background-image: url("docs/images/snake-animation/snake-moving-8.png");
+    background-image: url(../images/snake-animation/snake-moving-8.png);
   }
   53% {
-    background-image: url("docs/images/snake-animation/snake-moving-9.png");
+    background-image: url(../images/snake-animation/snake-moving-9.png);
   }
   60% {
-    background-image: url("docs/images/snake-animation/snake-moving-10.png");
+    background-image: url(../images/snake-animation/snake-moving-10.png);
   }
   67% {
-    background-image: url("docs/images/snake-animation/snake-moving-11.png");
+    background-image: url(../images/snake-animation/snake-moving-11.png);
   }
   74% {
-    background-image: url("docs/images/snake-animation/snake-moving-12.png");
+    background-image: url(../images/snake-animation/snake-moving-12.png);
   }
   81% {
-    background-image: url("docs/images/snake-animation/snake-moving-13.png");
+    background-image: url(../images/snake-animation/snake-moving-13.png);
   }
   87% {
-    background-image: url("docs/images/snake-animation/snake-moving-14.png");
+    background-image: url(../images/snake-animation/snake-moving-14.png);
   }
   96% {
-    background-image: url("docs/images/snake-animation/snake-moving-15.png");
+    background-image: url(../images/snake-animation/snake-moving-15.png);
   }
   100% {
-    background-image: url("docs/images/snake-animation/snake-moving-1.png");
+    background-image: url(../images/snake-animation/snake-moving-1.png);
   }
 }
 
@@ -325,51 +325,51 @@ button:hover {
 
 @keyframes hamster-animation {
   0% {
-    background-image: url("docs/images/hamster-animation/hamster1.png");
+    background-image: url(../images/hamster-animation/hamster1.png);
   }
   4% {
-    background-image: url("docs/images/hamster-animation/hamster2.png");
+    background-image: url(../images/hamster-animation/hamster2.png);
   }
   13% {
-    background-image: url("docs/images/hamster-animation/hamster3.png");
+    background-image: url(../images/hamster-animation/hamster3.png);
   }
   18% {
-    background-image: url("docs/images/hamster-animation/hamster4.png");
+    background-image: url(../images/hamster-animation/hamster4.png);
   }
   25% {
-    background-image: url("docs/images/hamster-animation/hamster5.png");
+    background-image: url(../images/hamster-animation/hamster5.png);
   }
   32% {
-    background-image: url("docs/images/hamster-animation/hamster6.png");
+    background-image: url(../images/hamster-animation/hamster6.png);
   }
   39% {
-    background-image: url("docs/images/hamster-animation/hamster7.png");
+    background-image: url(../images/hamster-animation/hamster7.png);
   }
   46% {
-    background-image: url("docs/images/hamster-animation/hamster8.png");
+    background-image: url(../images/hamster-animation/hamster8.png);
   }
   53% {
-    background-image: url("docs/images/hamster-animation/hamster9.png");
+    background-image: url(../images/hamster-animation/hamster9.png);
   }
   60% {
-    background-image: url("docs/images/hamster-animation/hamster10.png");
+    background-image: url(../images/hamster-animation/hamster10.png);
   }
   67% {
-    background-image: url("docs/images/hamster-animation/hamster11.png");
+    background-image: url(../images/hamster-animation/hamster11.png);
   }
   74% {
-    background-image: url("docs/images/hamster-animation/hamster12.png");
+    background-image: url(../images/hamster-animation/hamster12.png);
   }
   81% {
-    background-image: url("docs/images/hamster-animation/hamster13.png");
+    background-image: url(../images/hamster-animation/hamster13.png);
   }
   87% {
-    background-image: url("docs/images/hamster-animation/hamster14.png");
+    background-image: url(../images/hamster-animation/hamster14.png);
   }
   96% {
-    background-image: url("docs/images/hamster-animation/hamster15.png");
+    background-image: url(../images/hamster-animation/hamster15.png);
   }
   100% {
-    background-image: url("docs/images/hamster-animation/hamster1.png");
+    background-image: url(../images/hamster-animation/hamster1.png);
   }
 }
