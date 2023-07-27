@@ -21,6 +21,11 @@ body {
   flex-direction: column;
 }
 
+#credits {
+  color: black;
+  font-size: 16px;
+}
+
 button {
   font-size: 30px;
   padding: 20px 40px;
