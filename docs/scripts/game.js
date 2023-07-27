@@ -129,9 +129,7 @@ class Game {
       snake.move();
       if (this.player.checkCollision(snake)) {
         this.player.left = 50;
-        this.player.top = 250;
-        snake.element.remove();
-        this.snakes.splice(i, 1);
+        this.player.top = 250;;
         sounds.playHamsterSqueak();
         this.lives--;
         this.combo = 0;
