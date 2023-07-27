@@ -14,6 +14,7 @@ body {
   background-image: url(../images/background.png);
   background-size: 100vw;
   min-height: 100%;
+  font: verdana;
 }
 
 #game-intro {
@@ -145,7 +146,8 @@ button:hover {
   background-image: url(../images/ui-background.png);
   background-size: cover;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
+  font: verdana;
 }
 
 #game-screen {
@@ -210,7 +212,7 @@ button:hover {
 }
 
 #game-over > img {
-  width: 350px;
+  width: 250px;
   height: auto;
 }
 
