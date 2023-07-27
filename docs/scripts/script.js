@@ -7,6 +7,7 @@ window.onload = function () {
   const highscoreRestartButton = document.getElementById(
     "restart-button-highscore"
   );
+  
   highscore.innerHTML = localStorage.getItem("high-score");
   let game;
 
