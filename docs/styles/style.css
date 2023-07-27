@@ -27,6 +27,7 @@ body {
 #game-intro {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #logo {
@@ -44,6 +45,7 @@ body {
   color: black;
   font-size: 16px;
   text-align: center;
+  
 }
 
 button {
@@ -137,12 +139,12 @@ button:hover {
   justify-content: space-around;
   align-items: center;
   height: 45px;
-  width: auto;
+  width: 300px;
   border-style: solid;
   border-width: thin;
   border-radius: 5px;
   border-color: black;
-  margin: 20px;
+  margin: auto;
   padding: 0px;
   background-image: url(../images/ui-background.png);
   background-size: cover;
