@@ -23,6 +23,17 @@ body {
   flex-direction: column;
 }
 
+#logo {
+  width: 600px;
+  height: auto;
+  margin: 30px;
+}
+
+#intro-buttons {
+  display: flex;
+  justify-content: center;
+}
+
 #credits {
   color: black;
   font-size: 16px;
@@ -30,6 +41,8 @@ body {
 
 button {
   font-size: 20px;
+  width: 200px;
+  height: auto;
   padding: 10px 20px;
   margin: 10px;
   border-radius: 10px;
