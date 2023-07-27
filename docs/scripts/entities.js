@@ -63,7 +63,7 @@ class Obstacle {
     this.height = 80;
 
     this.element = document.createElement("img");
-    this.element.src = "/docs/images/rock-dark.png";
+    this.element.src = "./docs/images/rock-dark.png";
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.right = `${this.right}px`;
@@ -119,7 +119,7 @@ class Food {
     this.height = 40;
 
     this.element = document.createElement("img");
-    this.element.src = "/docs/images/food-berries.png";
+    this.element.src = "./docs/images/food-berries.png";
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.right}px`;
