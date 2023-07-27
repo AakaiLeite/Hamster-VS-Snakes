@@ -9,16 +9,8 @@ window.onload = function () {
   );
   
   highscore.innerHTML = localStorage.getItem("high-score");
+  
   let game;
-
-  function startGame() {
-    console.log("start game");
-
-    game = new Game();
-    sounds = new Sounds();
-
-    game.initializeBoard();
-  }
 
   startButton.addEventListener("click", () => {
     startGame();
@@ -36,6 +28,15 @@ window.onload = function () {
   returnButton.addEventListener("click", () => {
     location.reload();
   });
+
+  function startGame() {
+    console.log("start game");
+
+    game = new Game();
+    sounds = new Sounds();
+
+    game.initializeBoard();
+  }
 
   function handleKeyDown(event) {
     const key = event.key;
