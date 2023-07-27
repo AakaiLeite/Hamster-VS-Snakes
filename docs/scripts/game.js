@@ -1,3 +1,4 @@
+// ---------------- GANE -------------------------- //
 class Game {
   constructor() {
     this.gameIntro = document.getElementById("game-intro-container");
@@ -30,6 +31,7 @@ class Game {
 
     this.gameIsOver = false;
   }
+
   showInstructions() {
     this.gameIntro.style.display = "none";
     this.gameInstructions.style.display = "flex";

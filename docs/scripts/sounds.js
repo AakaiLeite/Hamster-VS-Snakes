@@ -1,3 +1,4 @@
+// ---------------- SOUND MANAGER -------------------------- //
 class Sounds {
   constructor() {
     this.backgroundMusic = new Audio("docs/sounds/background-music.mp3");

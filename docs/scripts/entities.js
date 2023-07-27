@@ -1,3 +1,5 @@
+// ---------------- ENTITIES -------------------------- //
+
 // ---------------- PLAYER -------------------------- //
 class Hamster {
   constructor(gameBoard, left, top, width, height) {

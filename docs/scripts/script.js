@@ -1,3 +1,4 @@
+// ---------------- SCRIPT -------------------------- //
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const instructionButton = document.getElementById("instructions-button");

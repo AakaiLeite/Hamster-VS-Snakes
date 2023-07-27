@@ -1,5 +1,4 @@
 /* ------------------------ PAGE CSS -------------------------- */
-
 * {
   padding: 0;
   margin: 0;
@@ -217,7 +216,6 @@ button:hover {
 }
 
 /* ------------------------ PAGES KEYFRAME ANIMATIONS -------------------------- */
-
 @keyframes shake {
   10%,
   90% {
@@ -260,7 +258,6 @@ button:hover {
 }
 
 /* ------------------------ GAME CLASSES -------------------------- */
-
 .hamster {
   width: 70px;
   height: 40px;
@@ -283,7 +280,6 @@ button:hover {
 }
 
 /* ------------------------ GAME KEYFRAME ANIMATIONS -------------------------- */
-
 @keyframes snake-animation {
   0% {
     background-image: url(../images/snake-animation/snake-moving-1.png);
