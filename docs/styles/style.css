@@ -1,3 +1,4 @@
+/* ------------------------ PAGE CSS -------------------------- */
 * {
   padding: 0;
   margin: 0;
@@ -46,26 +47,6 @@ button:hover {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
 }
 
 #game-instructions {
@@ -170,15 +151,6 @@ button:hover {
   animation: slide 6s linear infinite;
 }
 
-@keyframes slide {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -1100px 0;
-  }
-}
-
 #ui-screen {
   display: none;
   flex-direction: row;
@@ -237,6 +209,42 @@ button:hover {
   animation: blink-highscore 1.5s linear infinite;
 }
 
+#game-over-highscore > img {
+  width: 350px;
+  height: auto;
+}
+
+/* ------------------------ PAGES KEYFRAME ANIMATIONS -------------------------- */
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1100px 0;
+  }
+}
+
 @keyframes blink-highscore {
   0% {
     opacity: 0;
@@ -249,9 +257,17 @@ button:hover {
   }
 }
 
-#game-over-highscore > img {
-  width: 350px;
-  height: auto;
+/* ------------------------ GAME CLASSES -------------------------- */
+
+.hamster {
+  width: 70px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: hamster-animation 0.3s steps(16) infinite;
+  transform: scaleX(-1);
+  
 }
 
 .snake {
@@ -263,6 +279,8 @@ button:hover {
   animation: snake-animation 0.3s steps(16) infinite;
   transform: rotate(90deg);
 }
+
+/* ------------------------ GAME KEYFRAME ANIMATIONS -------------------------- */
 
 @keyframes snake-animation {
   0% {
@@ -313,16 +331,6 @@ button:hover {
   100% {
     background-image: url(../images/snake-animation/snake-moving-1.png);
   }
-}
-
-.hamster {
-  width: 70px;
-  height: 40px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  animation: hamster-animation 0.3s steps(16) infinite;
-  transform: scaleX(-1);
 }
 
 @keyframes hamster-animation {
