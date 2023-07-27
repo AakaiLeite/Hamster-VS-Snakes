@@ -18,6 +18,12 @@ body {
   font: verdana;
 }
 
+#game-intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #game-intro {
   display: flex;
   flex-direction: column;
@@ -37,6 +43,7 @@ body {
 #credits {
   color: black;
   font-size: 16px;
+  text-align: center;
 }
 
 button {
