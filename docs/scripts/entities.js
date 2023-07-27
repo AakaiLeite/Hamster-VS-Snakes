@@ -1,3 +1,4 @@
+// ---------------- PLAYER -------------------------- //
 class Hamster {
   constructor(gameBoard, left, top, width, height) {
     this.gameBoard = gameBoard;
@@ -53,6 +54,7 @@ class Hamster {
   }
 }
 
+// ---------------- OBSTACLE -------------------------- //
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
@@ -63,7 +65,7 @@ class Obstacle {
     this.height = 80;
 
     this.element = document.createElement("img");
-    this.element.src = "./docs/images/rock-dark.png";
+    this.element.src = "docs/images/rock-dark.png";
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.right = `${this.right}px`;
@@ -82,6 +84,7 @@ class Obstacle {
   }
 }
 
+// ---------------- SNAKE -------------------------- //
 class Snake {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
@@ -110,6 +113,7 @@ class Snake {
   }
 }
 
+// ---------------- FOOD -------------------------- //
 class Food {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
@@ -119,7 +123,7 @@ class Food {
     this.height = 40;
 
     this.element = document.createElement("img");
-    this.element.src = "./docs/images/food-berries.png";
+    this.element.src = "docs/images/food-berries.png";
     this.element.style.position = "absolute";
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.right}px`;

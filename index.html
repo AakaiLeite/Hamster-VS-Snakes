@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hamster VS Snakes</title>
-    <link rel="stylesheet" href="./docs/styles/style.css" />
+    <link rel="stylesheet" href="docs/styles/style.css" />
   </head>
   <body>
     <div id="game-intro-container">
@@ -14,7 +14,7 @@
         <button id="start-button">Start Game</button>
         <button id="instructions-button">Instructions</button>
         <!-- High Score Container-->
-        <div id="high-score-container">          
+        <div id="high-score-container">
           <p>High Score: <span id="high-score"></span></p>
         </div>
       </div>
@@ -26,24 +26,54 @@
       <div id="instructions-img-text">
         <div>
           <ul>
-            <li><img src="./docs/images/hamster.png" height="60px" width="120px"></li>
-            <br>
-            <li><img src="./docs/images/food-berries.png" height="60px" width="60px"></li>
-            <br>
-            <li><img class="snake-img" src="./docs/images/snake.png" transform="rotate(-90deg)" height="130px" width="60px"></li>
-            <br>
-            <li><img src="./docs/images/rock-dark.png" height="70px" width="70px"></li>
+            <li>
+              <img src="docs/images/hamster.png" height="60px" width="120px" />
+            </li>
+            <br />
+            <li>
+              <img
+                src="docs/images/food-berries.png"
+                height="60px"
+                width="60px"
+              />
+            </li>
+            <br />
+            <li>
+              <img
+                class="snake-img"
+                src="docs/images/snake.png"
+                transform="rotate(-90deg)"
+                height="130px"
+                width="60px"
+              />
+            </li>
+            <br />
+            <li>
+              <img src="docs/images/rock-dark.png" height="70px" width="70px" />
+            </li>
           </ul>
         </div>
         <div>
           <ul>
-            <li><span>You play as the Hamster. Don't let the hamster fall off the map</span></li>
-            <br>
-            <li><span>Catch food to earn points and combo. Combo 10 gains a life</span></li>
-            <br>
+            <li>
+              <span
+                >You play as the Hamster. Don't let the hamster fall off the
+                map</span
+              >
+            </li>
+            <br />
+            <li>
+              <span
+                >Catch food to earn points and combo. Combo 10 gains a
+                life</span
+              >
+            </li>
+            <br />
             <li><span>Snakes take a life. Hitting clears combo</span></li>
-            <br>
-            <li><span>Rocks will block your way. Hitting clears comnbo</span></li>
+            <br />
+            <li>
+              <span>Rocks will block your way. Hitting clears comnbo</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -57,23 +87,24 @@
       <div id="ui-screen">
         <!-- UI Screen-->
         <div id="ui-container">
-          <img src="./docs/images/score-icon.png" height="35px" width="auto"/>   
-          <span id="score">0</span></div>
-        <br>
+          <img src="docs/images/score-icon.png" height="35px" width="auto" />
+          <span id="score">0</span>
+        </div>
+        <br />
         <div id="ui-container">
-          <img src="./docs/images/heart-icon.png" height="35px" width="auto"/>
+          <img src="docs/images/heart-icon.png" height="35px" width="auto" />
           <span id="lives">5</span>
         </div>
-        <br>
+        <br />
         <div id="ui-container">
-          <img src="./docs/images/food-berries.png" height="35px" width="auto"/>
+          <img src="docs/images/food-berries.png" height="35px" width="auto" />
           <span id="combo">0</span>
         </div>
       </div>
     </div>
     <div id="game-over">
       <!-- Game over screen -->
-      <img src="./docs/images/dead-hamster.png" />
+      <img src="docs/images/dead-hamster.png" />
       <h1>Game Over</h1>
       <br />
       <button id="restart-button">Restart</button>
@@ -81,14 +112,14 @@
     <div id="game-over-highscore">
       <!-- Game over screen -->
       <h1 id="high-score-paragrah">New High Score!</h1>
-      <img src="/docs/images/dead-hamster.png" />
+      <img src="docs/images/dead-hamster.png" />
       <h1>Game Over</h1>
       <br />
       <button id="restart-button-highscore">Restart</button>
     </div>
-    <script defer src="./docs/scripts/game.js"></script>
-    <script defer src="./docs/scripts/entities.js"></script>
-    <script defer src="./docs/scripts/sounds.js"></script>
-    <script defer src="./docs/scripts/script.js"></script>
+    <script defer src="docs/scripts/game.js"></script>
+    <script defer src="docs/scripts/entities.js"></script>
+    <script defer src="docs/scripts/sounds.js"></script>
+    <script defer src="docs/scripts/script.js"></script>
   </body>
 </html>

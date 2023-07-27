@@ -1,9 +1,9 @@
 class Sounds {
   constructor() {
-    this.backgroundMusic = new Audio("./docs/sounds/background-music.mp3");
-    this.hamsterSqueak = new Audio("./docs/sounds/hamster-squeak.mp3");
-    this.hamsterEat = new Audio("./docs/sounds/hamster-eat.mp3");
-    this.snakehiss = new Audio("./docs/sounds/snake-hissing.mp3");
+    this.backgroundMusic = new Audio("docs/sounds/background-music.mp3");
+    this.hamsterSqueak = new Audio("docs/sounds/hamster-squeak.mp3");
+    this.hamsterEat = new Audio("docs/sounds/hamster-eat.mp3");
+    this.snakehiss = new Audio("docs/sounds/snake-hissing.mp3");
   }
 
   playBackgroundMusic() {
