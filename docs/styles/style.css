@@ -173,7 +173,10 @@ button:hover {
 }
 
 #ui-screen {
-  display: block;
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   height: 80px;
   width: 100%;
@@ -186,6 +189,13 @@ button:hover {
   color: white;
   font-size: 20px;
 }
+
+#ui-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 
 #game-over {
   display: none;

@@ -46,7 +46,7 @@ class Game {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.gameBoard.style.display = "block";
-    this.uiScreen.style.display = "block";
+    this.uiScreen.style.display = "flex";
     this.gameEndScreen.style.disply = "none";
     this.newHighScoreScreen.style.display = "none";
 
