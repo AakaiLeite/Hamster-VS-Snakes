@@ -70,7 +70,6 @@ class Game {
   updateGame() {
     let score = document.getElementById("score");
     let lives = document.getElementById("lives");
-    let combo = document.getElementById("combo");
 
     score.innerHTML = this.score;
     lives.innerHTML = this.lives;
