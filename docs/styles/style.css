@@ -215,8 +215,9 @@ button:hover {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-image: url(../images/background.png);
+  background-image: url(../images/background-end.png);
   background-size: cover;
+  background-repeat: no-repeat;
   position:absolute;
   top:0px;
   right:0px;
@@ -239,9 +240,21 @@ button:hover {
 
 #game-over-highscore {
   display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../images/background-end.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
   color: white;
   font-weight: bold;
   text-align: center;
+  font-weight: bold;
 }
 
 #game-over-highscore > #high-score-paragrah {
