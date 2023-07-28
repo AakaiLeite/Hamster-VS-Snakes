@@ -202,10 +202,10 @@ class Game {
     if (this.setHighScore()) {
       this.gameScreen.style.display = "none";
       this.gameEndScreen.style.disply = "none";
-      this.newHighScoreScreen.style.display = "block";
+      this.newHighScoreScreen.style.display = "flex";
     } else {
       this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.display = "block";
+      this.gameEndScreen.style.display = "flex";
       this.newHighScoreScreen.style.display = "none";
     }
 

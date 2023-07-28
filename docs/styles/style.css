@@ -12,16 +12,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/background.png);
-  background-size: 100vw;
   min-height: 100%;
-  font: verdana;
+  min-height: 100%;
+  background-image: url(../images/background.png);
+  background-size: cover;
 }
 
 #game-intro-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-image: url(../images/background-start.png);
+  background-size: cover;
+  min-height: 100%;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  font: verdana;
 }
 
 #game-intro {
@@ -31,9 +37,10 @@ body {
 }
 
 #logo {
-  width: 600px;
+  align-self: center;
+  width: 550px;
   height: auto;
-  margin: 30px;
+  margin: 60px;
 }
 
 #intro-buttons {
@@ -156,6 +163,11 @@ button:hover {
 #game-screen {
   display: none;
   flex-direction: column;
+  height: 100vw;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 
 #game-board {
@@ -200,6 +212,16 @@ button:hover {
 
 #game-over {
   display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../images/background.png);
+  background-size: cover;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
   color: white;
   font-weight: bold;
   text-align: center;
